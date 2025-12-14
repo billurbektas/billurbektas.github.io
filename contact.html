@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Contact – Billur Bektaş</title>
+    <style>
+        :root {
+            --stone: #F5F3F0;
+            --off-white: #FDFCFB;
+            --charcoal: #2B2B2B;
+            --charcoal-light: #5A5A5A;
+            --alpine-purple: #7B3FF2;
+            --alpine-purple-light: #9D6FF5;
+            --sky-blue: #7BA5C9;
+            --snow-white: #F8FAFB;
+            --border-subtle: rgba(43, 43, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(123, 63, 242, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 122, 168, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 2%) rotate(-1deg); }
+        }
+
+        /* Subtle grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 251, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1.75rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.75rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.015em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            max-width: 900px;
+            margin: 8rem auto 6rem;
+            padding: 0 4rem;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .contact-header h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-header p {
+            color: var(--charcoal-light);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: var(--charcoal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%) 1;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(123, 63, 242, 0.12);
+        }
+
+        .contact-card.email-card {
+            grid-column: span 2;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 48px;
+            margin-bottom: 1.25rem;
+            color: var(--alpine-purple);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+            color: var(--sky-blue);
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-card p {
+            color: var(--charcoal-light);
+            font-size: 0.95rem;
+        }
+
+        .copy-message {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--alpine-purple);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copy-message.show {
+            opacity: 1;
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-section {
+                margin: 6rem auto 4rem;
+                padding: 0 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card.email-card {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">Billur Bektaş</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="collaborators.html">Collaborations</a>
+                <a href="interactive-science.html">Interactive Science</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-header fade-in">
+            <div class="section-label">Let's Connect</div>
+            <h1>Get in Touch</h1>
+            <p>Interested in collaboration, have questions about my research, or just want to connect?</p>
+        </div>
+
+        <div class="contact-grid fade-in">
+            <div class="contact-card email-card" onclick="copyEmail()">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke-width="2"/>
+                    <path d="M2 8l9.167 6.111a2 2 0 002.666 0L22 8" stroke-width="2"/>
+                </svg>
+                <h3>Email</h3>
+                <p>Click to copy: billur.bektas@usys.ethz.ch</p>
+                <span id="copyMessage" class="copy-message"></span>
+            </div>
+
+            <a href="https://www.researchgate.net/profile/Billur-Bektas" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-researchgate contact-icon"></i>
+                <h3>ResearchGate</h3>
+            </a>
+
+            <a href="https://scholar.google.com/citations?user=A1zM3vkAAAAJ&hl=en&oi=ao" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                </svg>
+                <h3>Google Scholar</h3>
+            </a>
+
+            <a href="https://github.com/billurbektas" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <h3>GitHub</h3>
+            </a>
+
+            <a href="https://bsky.app/profile/did:plc:eji3hxbal23oltc2ny4pejh3" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-bluesky contact-icon"></i>
+                <h3>Bluesky</h3>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        function copyEmail() {
+            const email = "billur.bektas@usys.ethz.ch";
+            navigator.clipboard.writeText(email).then(function() {
+                const message = document.getElementById('copyMessage');
+                message.textContent = "Email copied!";
+                message.classList.add('show');
+
+                setTimeout(() => {
+                    message.classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy email:', err);
+            });
+        }
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

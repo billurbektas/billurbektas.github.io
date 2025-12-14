@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications – Billur Bektaş</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --stone: #F5F3F0;
+            --off-white: #FDFCFB;
+            --charcoal: #2B2B2B;
+            --charcoal-light: #5A5A5A;
+            --alpine-purple: #7B3FF2;
+            --alpine-purple-light: #9D6FF5;
+            --sky-blue: #7BA5C9;
+            --snow-white: #F8FAFB;
+            --border-subtle: rgba(43, 43, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(123, 63, 242, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 122, 168, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 2%) rotate(-1deg); }
+        }
+
+        /* Subtle grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 251, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1.75rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.75rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.015em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Header */
+        .publications-header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--stone) 0%, var(--snow-white) 100%);
+        }
+
+        .publications-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .publications-header .section-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Container */
+        .publications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 4rem;
+        }
+
+        /* Filters */
+        .filters-section {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .select-filter {
+            appearance: none;
+            background-color: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', sans-serif;
+            cursor: pointer;
+            min-width: 180px;
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%237B3FF2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .select-filter:hover {
+            border-color: var(--alpine-purple);
+            box-shadow: 0 4px 12px rgba(123, 63, 242, 0.1);
+        }
+
+        .select-filter:focus {
+            outline: none;
+            border-color: var(--alpine-purple);
+            box-shadow: 0 0 0 3px rgba(123, 63, 242, 0.1);
+        }
+
+        /* Publication Card */
+        .publication-card {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%) 1;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(123, 63, 242, 0.12);
+        }
+
+        .publication-year {
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .publication-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            line-height: 1.4;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+
+        .publication-authors {
+            color: var(--charcoal-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.975rem;
+        }
+
+        .publication-venue {
+            color: var(--charcoal-light);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.975rem;
+        }
+
+        .publication-keywords {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .keyword-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            background: linear-gradient(135deg, rgba(123, 63, 242, 0.08) 0%, rgba(122, 165, 201, 0.08) 100%);
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            background: linear-gradient(135deg, rgba(123, 63, 242, 0.15) 0%, rgba(122, 165, 201, 0.15) 100%);
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .pub-link:hover {
+            border-color: var(--alpine-purple);
+            color: var(--alpine-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(123, 63, 242, 0.15);
+        }
+
+        .pub-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .bibtex-content {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--stone);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            border-left: 3px solid var(--alpine-purple);
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .publications-header {
+                padding: 4rem 2rem 3rem;
+            }
+
+            .publications-container {
+                padding: 3rem 2rem;
+            }
+
+            .publication-card {
+                padding: 2rem;
+            }
+
+            .filters-section {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .select-filter {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">Billur Bektaş</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="collaborators.html">Collaborations</a>
+                <a href="interactive-science.html">Interactive Science</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="publications-header fade-in">
+        <div class="section-label">Research Output</div>
+        <h1>Publications</h1>
+    </header>
+
+    <main class="publications-container">
+        <div class="filters-section">
+            <div class="filter-group">
+                <span class="filter-label">Year:</span>
+                <select class="select-filter" id="yearSelect">
+                    <option value="all">All Years</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">Topic:</span>
+                <select class="select-filter" id="keywordSelect">
+                    <option value="all">All Topics</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="publicationsList">
+            <!-- Publications will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <script>
+        let publications = [];
+
+        async function loadPublications() {
+            try {
+                const response = await fetch('data/publications.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error loading publications:', error);
+                // Show error message to user
+                document.getElementById('publicationsList').innerHTML = `
+                    <div style="text-align: center; padding: 4rem 2rem; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+                        <h3 style="color: var(--charcoal); margin-bottom: 1rem;">Unable to load publications</h3>
+                        <p style="color: var(--charcoal-light); margin-bottom: 1.5rem;">
+                            Please open this website using a local server instead of opening the file directly.
+                        </p>
+                        <p style="color: var(--charcoal-light); font-size: 0.9rem;">
+                            Error: ${error.message}
+                        </p>
+                    </div>
+                `;
+                return [];
+            }
+        }
+
+        function createPublicationCard(pub) {
+            return `
+                <article class="publication-card" data-year="${pub.year}">
+                    <div class="publication-year">${pub.year}</div>
+                    <h2 class="publication-title">${pub.title}</h2>
+                    <div class="publication-authors">${pub.authors.join(', ')}</div>
+                    <div class="publication-venue">${pub.venue}</div>
+                    <div class="publication-keywords">
+                        ${pub.keywords.map(keyword =>
+                            `<span class="keyword-tag">${keyword.replace(/-/g, ' ')}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="publication-links">
+                        ${pub.githubUrl && pub.githubUrl !== '#' ? `
+                            <a href="${pub.githubUrl}" class="pub-link github-link" target="_blank" title="GitHub Repository">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                Code
+                            </a>
+                        ` : ''}
+                        ${pub.shinyUrl && pub.shinyUrl !== '#' ? `
+                            <a href="${pub.shinyUrl}" class="pub-link shiny-link" target="_blank" title="R Shiny App">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>
+                                Shiny App
+                            </a>
+                        ` : ''}
+                        ${pub.doi ? `
+                            <a href="${pub.doi}" class="pub-link website-link" target="_blank" title="Article">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                Article
+                            </a>
+                        ` : ''}
+                        ${pub.blogPost && pub.blogPost !== '#' ? `
+                            <a href="${pub.blogPost}" class="pub-link blog-link" target="_blank" title="Blog Post">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                Blog
+                            </a>
+                        ` : ''}
+                        <button onclick="toggleBibtex(this)" class="pub-link bibtex-link" title="Show BibTeX">BibTeX</button>
+                    </div>
+                    <div class="bibtex-content">
+                        <pre>${pub.bibtex || 'BibTeX not available'}</pre>
+                    </div>
+                </article>
+            `;
+        }
+
+        function initializeKeywordSelect(pubs) {
+            const keywords = new Set();
+            pubs.forEach(pub => pub.keywords.forEach(keyword => keywords.add(keyword)));
+
+            const select = document.getElementById('keywordSelect');
+            Array.from(keywords).sort().forEach(keyword => {
+                const option = document.createElement('option');
+                option.value = keyword;
+                option.textContent = keyword.replace(/-/g, ' ');
+                select.appendChild(option);
+            });
+        }
+
+        function filterPublications() {
+            const selectedYear = document.getElementById('yearSelect').value;
+            const selectedKeyword = document.getElementById('keywordSelect').value;
+
+            const filtered = publications.filter(pub => {
+                const yearMatch = selectedYear === 'all' || pub.year === selectedYear;
+                const keywordMatch = selectedKeyword === 'all' || pub.keywords.includes(selectedKeyword);
+                return yearMatch && keywordMatch;
+            });
+
+            document.getElementById('publicationsList').innerHTML =
+                filtered.map(createPublicationCard).join('');
+        }
+
+        function toggleBibtex(button) {
+            const card = button.closest('.publication-card');
+            const bibtexContent = card.querySelector('.bibtex-content');
+            if (bibtexContent.style.display === 'none' || !bibtexContent.style.display) {
+                bibtexContent.style.display = 'block';
+                button.textContent = 'Hide BibTeX';
+            } else {
+                bibtexContent.style.display = 'none';
+                button.textContent = 'BibTeX';
+            }
+        }
+
+        function initializeYearSelect(pubs) {
+            const years = new Set();
+            pubs.forEach(pub => years.add(pub.year));
+
+            const select = document.getElementById('yearSelect');
+            select.innerHTML = '<option value="all">All Years</option>';
+
+            Array.from(years)
+                .sort((a, b) => {
+                    // "in press" should come first
+                    if (a === 'in press') return -1;
+                    if (b === 'in press') return 1;
+                    // Then sort numeric years in descending order
+                    return b - a;
+                })
+                .forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    select.appendChild(option);
+                });
+        }
+
+        async function initializePage() {
+            publications = await loadPublications();
+
+            if (publications.length > 0) {
+                initializeYearSelect(publications);
+                initializeKeywordSelect(publications);
+                filterPublications();
+
+                document.getElementById('yearSelect').addEventListener('change', filterPublications);
+                document.getElementById('keywordSelect').addEventListener('change', filterPublications);
+            } else {
+                document.getElementById('publicationsList').innerHTML =
+                    '<p>No publications found.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

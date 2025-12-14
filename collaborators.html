@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborations - Billur Bektaş</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors extracted from photo_BEKTAS2.jpg */
+            --stone: #F5F3F0;
+            --off-white: #FDFCFB;
+            --charcoal: #2B2B2B;
+            --charcoal-light: #5A5A5A;
+
+            /* New vibrant palette from the photo */
+            --alpine-purple: #7B3FF2;
+            --alpine-purple-light: #9D6FF5;
+            --alpine-purple-pale: #C5A9F7;
+            --sky-blue: #7BA5C9;
+            --mountain-slate: #5B7A95;
+            --lake-blue: #4A7AA8;
+            --snow-white: #F8FAFB;
+            --earth-tan: #C4AE9E;
+
+            --contour: rgba(123, 63, 242, 0.08);
+            --border-subtle: rgba(43, 43, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 17px;
+            letter-spacing: -0.003em;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(123, 63, 242, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 122, 168, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 2%) rotate(-1deg); }
+        }
+
+        /* Subtle grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin-bottom: 0.875rem;
+            font-weight: 400;
+        }
+
+        /* Enhanced Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 251, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1.75rem 0;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 1.25rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.75rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.015em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Collaborations Hero */
+        .collaborations-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 4rem 6rem;
+            text-align: center;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .collaborations-hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .collaborations-hero p {
+            font-size: 1.25rem;
+            color: var(--charcoal-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Network Container */
+        .network-container {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            padding: 0 4rem;
+        }
+
+        .network-wrapper {
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 10px 50px rgba(123, 63, 242, 0.08);
+            overflow: hidden;
+            border-top: 3px solid transparent;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .network-wrapper:hover {
+            box-shadow: 0 20px 60px rgba(123, 63, 242, 0.12);
+        }
+
+        .network-wrapper iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            display: block;
+        }
+
+        /* Network Info */
+        .network-info {
+            max-width: 1400px;
+            margin: 0 auto 12rem;
+            padding: 0 4rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid var(--alpine-purple);
+        }
+
+        .info-card h3 {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .info-card p {
+            color: var(--charcoal-light);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.975rem;
+            line-height: 1.8;
+        }
+
+        .info-card p::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--alpine-purple);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-content {
+                padding: 0 3rem;
+            }
+
+            .collaborations-hero {
+                padding: 6rem 3rem 4rem;
+            }
+
+            .network-container {
+                padding: 0 3rem;
+            }
+
+            .network-info {
+                padding: 0 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .collaborations-hero {
+                padding: 5rem 2rem 3rem;
+            }
+
+            .collaborations-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .network-container {
+                padding: 0 2rem;
+            }
+
+            .network-wrapper iframe {
+                height: 600px;
+            }
+
+            .network-info {
+                padding: 0 2rem;
+            }
+
+            .info-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Billur Bektaş</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="collaborators.html">Collaborations</a>
+                <a href="interactive-science.html">Interactive Science</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="collaborations-hero fade-in">
+        <div class="section-label">Research Network</div>
+        <h1>Research Collaborations</h1>
+        <p>Explore my network of research collaborators, co-authors, and students across different institutions worldwide. This interactive visualization demonstrates the breadth and depth of our collaborative research efforts.</p>
+    </section>
+
+    <div class="network-container">
+        <div class="network-wrapper fade-in">
+            <iframe src="collaboration_network.html" title="Collaboration Network"></iframe>
+        </div>
+    </div>
+
+    <div class="network-info">
+        <div class="info-card fade-in">
+            <h3>Understanding the Network</h3>
+            <p>Node colors represent different institutions</p>
+            <p>Line thickness indicates collaboration intensity</p>
+            <p>Use the dropdown menu to filter by institution</p>
+            <p>Click on any node to see detailed collaboration information</p>
+            <p>Hover over connections to see collaboration details</p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

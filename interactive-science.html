@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billur Bektaş - Interactive Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors extracted from photo_BEKTAS2.jpg */
+            --stone: #F5F3F0;
+            --off-white: #FDFCFB;
+            --charcoal: #2B2B2B;
+            --charcoal-light: #5A5A5A;
+
+            /* New vibrant palette from the photo */
+            --alpine-purple: #7B3FF2;
+            --alpine-purple-light: #9D6FF5;
+            --alpine-purple-pale: #C5A9F7;
+            --sky-blue: #7BA5C9;
+            --mountain-slate: #5B7A95;
+            --lake-blue: #4A7AA8;
+            --snow-white: #F8FAFB;
+            --earth-tan: #C4AE9E;
+
+            --contour: rgba(123, 63, 242, 0.08);
+            --border-subtle: rgba(43, 43, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 17px;
+            letter-spacing: -0.003em;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(123, 63, 242, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 122, 168, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 2%) rotate(-1deg); }
+        }
+
+        /* Subtle grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin-bottom: 0.875rem;
+            font-weight: 400;
+        }
+
+        /* Enhanced Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 251, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1.75rem 0;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 1.25rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.75rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.015em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Interactive Header */
+        .interactive-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 4rem 6rem;
+            text-align: center;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .interactive-header h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .interactive-header p {
+            color: var(--charcoal-light);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Apps Container */
+        .apps-container {
+            max-width: 1400px;
+            margin: 0 auto 12rem;
+            padding: 0 4rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .app-card {
+            background: white;
+            border-top: 3px solid transparent;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .app-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .app-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(123, 63, 242, 0.15);
+        }
+
+        .app-preview {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-card:hover .app-preview {
+            transform: scale(1.05);
+        }
+
+        .app-content {
+            padding: 2.5rem;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--charcoal-light);
+            align-items: center;
+        }
+
+        .app-tag {
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: white;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .app-title {
+            font-size: 1.75rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .app-card:hover .app-title {
+            color: var(--alpine-purple);
+        }
+
+        .app-description {
+            color: var(--charcoal-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 0.975rem;
+            flex-grow: 1;
+        }
+
+        .app-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.75rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        .launch-app {
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(123, 63, 242, 0.2);
+        }
+
+        .view-code {
+            border: 1px solid var(--border-subtle);
+            color: var(--charcoal);
+            background: transparent;
+        }
+
+        .launch-app:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(123, 63, 242, 0.3);
+        }
+
+        .view-code:hover {
+            background: var(--stone);
+            border-color: var(--alpine-purple);
+            color: var(--alpine-purple);
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-content {
+                padding: 0 3rem;
+            }
+
+            .interactive-header {
+                padding: 6rem 3rem 4rem;
+            }
+
+            .apps-container {
+                padding: 0 3rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .interactive-header {
+                padding: 5rem 2rem 3rem;
+            }
+
+            .interactive-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .apps-container {
+                padding: 0 2rem;
+            }
+
+            .app-links {
+                flex-direction: column;
+            }
+
+            .app-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Billur Bektaş</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="publications.html">Publications</a>
+                <a href="collaborators.html">Collaborations</a>
+                <a href="interactive-science.html">Interactive Science</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="interactive-header fade-in">
+        <div class="section-label">Interactive Tools</div>
+        <h1>Interactive Science</h1>
+        <p>Explore our collection of interactive R Shiny applications designed to visualize and analyze ecological data. These tools make complex scientific concepts accessible and engaging.</p>
+    </header>
+
+    <div class="apps-container">
+        <div class="apps-grid">
+            <article class="app-card fade-in">
+                <img src="/api/placeholder/600/400" alt="Biodiversity Visualization" class="app-preview">
+                <div class="app-content">
+                    <div class="app-meta">
+                        <span class="app-tag">Data Visualization</span>
+                        <span>Updated: June 2024</span>
+                    </div>
+                    <h2 class="app-title">Biodiversity Metrics Explorer</h2>
+                    <p class="app-description">Interactive visualization of biodiversity indices across different ecosystems. Compare metrics, analyze trends, and explore ecological patterns.</p>
+                    <div class="app-links">
+                        <a href="#" class="app-link launch-app">Launch Application</a>
+                        <a href="#" class="app-link view-code">View Code</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="app-card fade-in">
+                <img src="/api/placeholder/600/400" alt="Species Distribution" class="app-preview">
+                <div class="app-content">
+                    <div class="app-meta">
+                        <span class="app-tag">Spatial Analysis</span>
+                        <span>Updated: May 2024</span>
+                    </div>
+                    <h2 class="app-title">Species Distribution Mapper</h2>
+                    <p class="app-description">Map and analyze species distributions across different geographical regions. Includes tools for habitat suitability analysis and range predictions.</p>
+                    <div class="app-links">
+                        <a href="#" class="app-link launch-app">Launch Application</a>
+                        <a href="#" class="app-link view-code">View Code</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
