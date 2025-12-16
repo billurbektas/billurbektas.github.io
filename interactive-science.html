@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billur Bektaş - Interactive Science</title>
+    <title>Interactive Science – Billur Bektaş</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -44,6 +44,18 @@
             font-size: 17px;
             letter-spacing: -0.003em;
             overflow-x: hidden;
+            animation: pageLoad 0.4s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animated gradient background */
@@ -161,7 +173,7 @@
         .nav-links a {
             color: var(--charcoal-light);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 400;
             transition: all 0.3s ease;
             letter-spacing: 0.015em;
@@ -180,7 +192,10 @@
         }
 
         .nav-links a:hover {
-            color: var(--alpine-purple);
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links a:hover::after {
@@ -191,21 +206,8 @@
         .interactive-header {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 8rem 4rem 6rem;
+            padding: 5.5rem 4rem 4.5rem;
             text-align: center;
-        }
-
-        .section-label {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-            display: inline-block;
         }
 
         .interactive-header h1 {
@@ -225,7 +227,7 @@
         /* Apps Container */
         .apps-container {
             max-width: 1400px;
-            margin: 0 auto 12rem;
+            margin: 0 auto 8rem;
             padding: 0 4rem;
         }
 
@@ -394,7 +396,7 @@
             }
 
             .interactive-header {
-                padding: 6rem 3rem 4rem;
+                padding: 4.5rem 3rem 3.5rem;
             }
 
             .apps-container {
@@ -417,7 +419,7 @@
             }
 
             .interactive-header {
-                padding: 5rem 2rem 3rem;
+                padding: 4rem 2rem 3rem;
             }
 
             .interactive-header h1 {
@@ -456,7 +458,6 @@
     </nav>
 
     <header class="interactive-header fade-in">
-        <div class="section-label">Interactive Tools</div>
         <h1>Interactive Science</h1>
         <p>Explore our collection of interactive R Shiny applications designed to visualize and analyze ecological data. These tools make complex scientific concepts accessible and engaging.</p>
     </header>

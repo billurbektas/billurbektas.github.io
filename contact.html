@@ -35,6 +35,18 @@
             line-height: 1.8;
             font-size: 17px;
             overflow-x: hidden;
+            animation: pageLoad 0.4s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animated gradient background */
@@ -125,7 +137,7 @@
         .nav-links a {
             color: var(--charcoal-light);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 400;
             transition: all 0.3s ease;
             letter-spacing: 0.015em;
@@ -144,7 +156,10 @@
         }
 
         .nav-links a:hover {
-            color: var(--alpine-purple);
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links a:hover::after {
@@ -154,26 +169,13 @@
         /* Contact Section */
         .contact-section {
             max-width: 900px;
-            margin: 8rem auto 6rem;
+            margin: 4rem auto 5rem;
             padding: 0 4rem;
         }
 
         .contact-header {
             text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-label {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            display: inline-block;
+            margin-bottom: 3rem;
         }
 
         .contact-header h1 {
@@ -233,7 +235,7 @@
 
         .contact-card:hover .contact-icon {
             transform: scale(1.1);
-            color: var(--sky-blue);
+            color: #3DA8FF;
         }
 
         .contact-card h3 {
@@ -280,6 +282,17 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-content {
+                padding: 0 3rem;
+            }
+
+            .contact-section {
+                margin: 4.5rem auto 4rem;
+                padding: 0 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-content {
                 padding: 0 2rem;
@@ -290,7 +303,7 @@
             }
 
             .contact-section {
-                margin: 6rem auto 4rem;
+                margin: 4.5rem auto 3.5rem;
                 padding: 0 2rem;
             }
 
@@ -322,7 +335,6 @@
 
     <section class="contact-section">
         <div class="contact-header fade-in">
-            <div class="section-label">Let's Connect</div>
             <h1>Get in Touch</h1>
             <p>Interested in collaboration, have questions about my research, or just want to connect?</p>
         </div>
@@ -334,7 +346,7 @@
                     <path d="M2 8l9.167 6.111a2 2 0 002.666 0L22 8" stroke-width="2"/>
                 </svg>
                 <h3>Email</h3>
-                <p>Click to copy: billur.bektas@usys.ethz.ch</p>
+                <p>Click to copy</p>
                 <span id="copyMessage" class="copy-message"></span>
             </div>
 

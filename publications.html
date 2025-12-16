@@ -34,6 +34,18 @@
             line-height: 1.8;
             font-size: 17px;
             overflow-x: hidden;
+            animation: pageLoad 0.4s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animated gradient background */
@@ -136,7 +148,7 @@
         .nav-links a {
             color: var(--charcoal-light);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 400;
             transition: all 0.3s ease;
             letter-spacing: 0.015em;
@@ -155,7 +167,10 @@
         }
 
         .nav-links a:hover {
-            color: var(--alpine-purple);
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links a:hover::after {
@@ -165,32 +180,19 @@
         /* Header */
         .publications-header {
             text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--stone) 0%, var(--snow-white) 100%);
+            padding: 5.5rem 4rem 3rem;
         }
 
         .publications-header h1 {
-            margin-bottom: 1rem;
-        }
-
-        .publications-header .section-label {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(3rem, 5vw, 4.5rem);
             margin-bottom: 1.5rem;
-            font-weight: 600;
-            display: inline-block;
         }
 
         /* Container */
         .publications-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 4rem;
+            padding: 3rem 4rem 4rem;
         }
 
         /* Filters */
@@ -302,11 +304,11 @@
         }
 
         .keyword-tag {
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.85rem;
             border-radius: 100px;
             background: linear-gradient(135deg, rgba(123, 63, 242, 0.08) 0%, rgba(122, 165, 201, 0.08) 100%);
             color: var(--charcoal);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 400;
             transition: all 0.3s ease;
         }
@@ -378,6 +380,20 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-content {
+                padding: 0 3rem;
+            }
+
+            .publications-header {
+                padding: 4.5rem 3rem 3.5rem;
+            }
+
+            .publications-container {
+                padding: 0 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-content {
                 padding: 0 2rem;
@@ -433,7 +449,6 @@
     </nav>
 
     <header class="publications-header fade-in">
-        <div class="section-label">Research Output</div>
         <h1>Publications</h1>
     </header>
 
@@ -488,12 +503,53 @@
             }
         }
 
+        function formatAuthors(authors) {
+            // If 8 or fewer authors, show all
+            if (authors.length <= 8) {
+                return authors.map(author =>
+                    author.includes('Bektaş') || author.includes('Bektas') ? `<strong>${author}</strong>` : author
+                ).join(', ');
+            }
+
+            // If more than 8, show first 3, last 3, and user's name
+            const first3 = authors.slice(0, 3);
+            const last3 = authors.slice(-3);
+
+            // Find user's name if it's not in first3 or last3
+            const userIndex = authors.findIndex(author =>
+                author.includes('Bektaş') || author.includes('Bektas')
+            );
+
+            let result = [];
+
+            // Add first 3
+            result.push(...first3.map(author =>
+                author.includes('Bektaş') || author.includes('Bektas') ? `<strong>${author}</strong>` : author
+            ));
+
+            // If user is not in first3 or last3, add them
+            if (userIndex >= 3 && userIndex < authors.length - 3) {
+                result.push('[...]');
+                result.push(`<strong>${authors[userIndex]}</strong>`);
+                result.push('[...]');
+            } else {
+                result.push('[...]');
+            }
+
+            // Add last 3
+            result.push(...last3.map(author =>
+                author.includes('Bektaş') || author.includes('Bektas') ? `<strong>${author}</strong>` : author
+            ));
+
+            return result.join(', ');
+        }
+
         function createPublicationCard(pub) {
             return `
                 <article class="publication-card" data-year="${pub.year}">
                     <div class="publication-year">${pub.year}</div>
                     <h2 class="publication-title">${pub.title}</h2>
-                    <div class="publication-authors">${pub.authors.join(', ')}</div>
+                    <div class="publication-authors">${formatAuthors(pub.authors)}</div>
                     <div class="publication-venue">${pub.venue}</div>
                     <div class="publication-keywords">
                         ${pub.keywords.map(keyword =>
