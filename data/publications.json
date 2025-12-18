@@ -1,50 +1,9 @@
 [
   {
     "entryType": "article",
-    "citationKey": "10_1111_nph_70503",
-    "sourceFile": "pericles_14698137AxA.bib",
-    "year": "in press",
-    "title": "Traits and functions of alpine plant communities respond strongly but not always sufficiently to in situ climate change",
-    "authors": [
-      "Billur Bektaş",
-      "Gemma Rutten",
-      "Amélie Saillard",
-      "Rodrigue Friaud",
-      "Cindy Arnoldi",
-      "Julien Renaud",
-      "Maya Guéguen",
-      "Arnaud Foulquier",
-      "Jérôme Poulenard",
-      "Emilie Lyautey",
-      "Jean-Christophe Clément",
-      "Wilfried Thuiller",
-      "Tamara Münkemüller"
-    ],
-    "venue": "New Phytologist",
-    "volume": "n/a",
-    "number": "n/a",
-    "pages": "",
-    "doi": "https://doi.org/10.1111/nph.70503",
-    "abstract": "Summary Increasing climate warming and summer droughts are known to affect mountain plant communities, their functional traits and life strategies. However, little is known about how strongly and efficiently communities respond to climate change, and how tightly plant responses are linked to responses of ecosystem functions. To test this, we transplanted alpine plant communities to subalpine conditions, exposing them to warming and drying. We compared these transplanted communities to alpine and subalpine control communities to assess their responses. Five years after transplantation, we found slower growth (e.g. lower leaf nitrogen) and more outsourcing strategies (e.g. lower specific root length) in the warmer and drier subalpine control communities compared to the alpine controls, probably due to drought. Traits of warmed alpine communities shifted toward subalpine controls. However, neither below- nor aboveground traits nor productivity of plants fully acclimated to subalpine conditions. Nevertheless, standard litter decomposition rates, arbuscular colonization and bacterial biomass showed no acclimation lag to the subalpine controls. Significant but insufficient acclimation of plant functional traits and strategies is prone to result in maladapted plant productivity, impairing competitiveness with better adapted subalpine species and leading to the temporally delayed loss of ecosystem features specific to alpine environments.",
-    "keywords": [
-      "alpine-plants",
-      "climate-change",
-      "ecosystem-functions",
-      "leaf-root-coordination",
-      "mycorrhizal-colonization",
-      "plant-economics-space",
-      "plant-functional-traits",
-      "transplant-experiment"
-    ],
-    "pdfPath": null,
-    "blogPost": null,
-    "bibtex": "@article{https://doi.org/10.1111/nph.70503,\nauthor = {Bektaş, Billur and Rutten, Gemma and Saillard, Amélie and Friaud, Rodrigue and Arnoldi, Cindy and Renaud, Julien and Guéguen, Maya and Foulquier, Arnaud and Poulenard, Jérôme and Lyautey, Emilie and Clément, Jean-Christophe and Thuiller, Wilfried and Münkemüller, Tamara},\ntitle = {Traits and functions of alpine plant communities respond strongly but not always sufficiently to in situ climate change},\njournal = {New Phytologist},\nvolume = {n/a},\nnumber = {n/a},\npages = {},\nkeywords = {alpine plants, climate change, ecosystem functions, leaf–root coordination, mycorrhizal colonization, plant economics space, Plant functional traits, transplant experiment},\ndoi = {https://doi.org/10.1111/nph.70503},\nurl = {https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.70503},\neprint = {https://nph.onlinelibrary.wiley.com/doi/pdf/10.1111/nph.70503},\nabstract = {Summary Increasing climate warming and summer droughts are known to affect mountain plant communities, their functional traits and life strategies. However, little is known about how strongly and efficiently communities respond to climate change, and how tightly plant responses are linked to responses of ecosystem functions. To test this, we transplanted alpine plant communities to subalpine conditions, exposing them to warming and drying. We compared these transplanted communities to alpine and subalpine control communities to assess their responses. Five years after transplantation, we found slower growth (e.g. lower leaf nitrogen) and more outsourcing strategies (e.g. lower specific root length) in the warmer and drier subalpine control communities compared to the alpine controls, probably due to drought. Traits of warmed alpine communities shifted toward subalpine controls. However, neither below- nor aboveground traits nor productivity of plants fully acclimated to subalpine conditions. Nevertheless, standard litter decomposition rates, arbuscular colonization and bacterial biomass showed no acclimation lag to the subalpine controls. Significant but insufficient acclimation of plant functional traits and strategies is prone to result in maladapted plant productivity, impairing competitiveness with better adapted subalpine species and leading to the temporally delayed loss of ecosystem features specific to alpine environments.}\n}"
-  },
-  {
-    "entryType": "article",
     "citationKey": "10_1111_ecog_07378",
     "sourceFile": "pericles_16000587AxA.bib",
-    "year": "2025",
+    "year": "in press",
     "title": "Colonization and extinction lags drive non-linear responses to warming in mountain plant communities across the Northern Hemisphere",
     "authors": [
       "Billur Bektaş",
@@ -99,6 +58,47 @@
     "pdfPath": "/pdfs/10_1111_ecog_07378.pdf",
     "blogPost": null,
     "bibtex": "@article{https://doi.org/10.1111/ecog.07378,\nauthor = {Bektaş, Billur and Chisholm, Chelsea and Egelkraut, Dagmar and Lynn, Joshua and Block, Sebastián and Deola, Thomas and Dommanget, Fanny and Enquist, Brian J. and Goldberg, Deborah E. and Haider, Sylvia and Halbritter, Aud H. and He, Yongtao and Jaunatre, Renaud and Jentsch, Anke and Klanderud, Kari and Kardol, Paul and Lachmuth, Susanne and Loucougaray, Gregory and Münkemüller, Tamara and Niedrist, Georg and Nomoto, Hanna and Seltzer, Lorah and Paul Töpper, Joachim and Rew, Lisa J. and Seipel, Tim and Shah, Manzoor A. and James Telford, Richard and Walker, Tom W.N. and Wang, Shiping and Wardle, David A. and Wolff, Peter and Yang, Yan and Vandvik, Vigdis and Alexander, Jake M.},\ntitle = {Colonization and extinction lags drive non-linear responses to warming in mountain plant communities across the Northern Hemisphere},\njournal = {Ecography},\nvolume = {n/a},\nnumber = {n/a},\npages = {e07378},\nkeywords = {Alpine plants, climate warming, elevation gradient, macroecology, transplant experiment, warming experiment},\ndoi = {https://doi.org/10.1111/ecog.07378},\nurl = {https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/ecog.07378},\neprint = {https://nsojournals.onlinelibrary.wiley.com/doi/pdf/10.1111/ecog.07378},\nabstract = {Global warming is changing plant communities due to the arrival of new species from warmer regions and declining abundance of cold-adapted species. However, experimentally testing predictions about trajectories and rates of community change is challenging because we normally lack an expectation for future community composition, and most warming experiments fail to incorporate colonization by novel species. To address these issues, we analyzed data from 44 whole-community transplant experiments along 22 elevational gradients across the Northern Hemisphere. In these experiments, high-elevation communities were transplanted to lower elevations to simulate warming, while also removing dispersal barriers for lower-elevation species to establish. We quantified the extent and pace at which warmed high-elevation communities shifted towards the taxonomic composition of lower elevation communities. High-elevation plant communities converged towards the composition of low-elevation communities, with higher rates under stronger experimental warming. Strong community shifts occurred in the first year after transplantation then slowed over time, such that communities remained distinct from both origin and destination control by the end of the experimental periods (3-9 years). Changes were driven to a similar extent by both new species colonization and abundance shifts of high-elevation species, but with substantial variation across experiments that could be partly explained by the magnitude and duration of experimental warming, plot size and functional traits. Our macroecological approach reveals that while warmed high-elevation communities increasingly resemble communities at lower elevations today, the slow pace of taxonomic shifts implies considerable colonization and extinction lags, where a novel taxonomic composition of both low- and high-elevation species could coexist for long periods of time. The important contribution of the colonizing species to community change also indicates that once dispersal barriers are overcome, warmed high-elevation communities are vulnerable to encroachment from lower elevation species.}\n}"
+  },
+  {
+    "entryType": "article",
+    "citationKey": "10_1111_nph_70503",
+    "sourceFile": "pericles_14698137AxA.bib",
+    "year": "in press",
+    "title": "Traits and functions of alpine plant communities respond strongly but not always sufficiently to in situ climate change",
+    "authors": [
+      "Billur Bektaş",
+      "Gemma Rutten",
+      "Amélie Saillard",
+      "Rodrigue Friaud",
+      "Cindy Arnoldi",
+      "Julien Renaud",
+      "Maya Guéguen",
+      "Arnaud Foulquier",
+      "Jérôme Poulenard",
+      "Emilie Lyautey",
+      "Jean-Christophe Clément",
+      "Wilfried Thuiller",
+      "Tamara Münkemüller"
+    ],
+    "venue": "New Phytologist",
+    "volume": "n/a",
+    "number": "n/a",
+    "pages": "",
+    "doi": "https://doi.org/10.1111/nph.70503",
+    "abstract": "Summary Increasing climate warming and summer droughts are known to affect mountain plant communities, their functional traits and life strategies. However, little is known about how strongly and efficiently communities respond to climate change, and how tightly plant responses are linked to responses of ecosystem functions. To test this, we transplanted alpine plant communities to subalpine conditions, exposing them to warming and drying. We compared these transplanted communities to alpine and subalpine control communities to assess their responses. Five years after transplantation, we found slower growth (e.g. lower leaf nitrogen) and more outsourcing strategies (e.g. lower specific root length) in the warmer and drier subalpine control communities compared to the alpine controls, probably due to drought. Traits of warmed alpine communities shifted toward subalpine controls. However, neither below- nor aboveground traits nor productivity of plants fully acclimated to subalpine conditions. Nevertheless, standard litter decomposition rates, arbuscular colonization and bacterial biomass showed no acclimation lag to the subalpine controls. Significant but insufficient acclimation of plant functional traits and strategies is prone to result in maladapted plant productivity, impairing competitiveness with better adapted subalpine species and leading to the temporally delayed loss of ecosystem features specific to alpine environments.",
+    "keywords": [
+      "alpine-plants",
+      "climate-change",
+      "ecosystem-functions",
+      "leafroot-coordination",
+      "mycorrhizal-colonization",
+      "plant-economics-space",
+      "plant-functional-traits",
+      "transplant-experiment"
+    ],
+    "pdfPath": "/pdfs/10_1111_nph_70503.pdf",
+    "blogPost": null,
+    "bibtex": "@article{https://doi.org/10.1111/nph.70503,\nauthor = {Bektaş, Billur and Rutten, Gemma and Saillard, Amélie and Friaud, Rodrigue and Arnoldi, Cindy and Renaud, Julien and Guéguen, Maya and Foulquier, Arnaud and Poulenard, Jérôme and Lyautey, Emilie and Clément, Jean-Christophe and Thuiller, Wilfried and Münkemüller, Tamara},\ntitle = {Traits and functions of alpine plant communities respond strongly but not always sufficiently to in situ climate change},\njournal = {New Phytologist},\nvolume = {n/a},\nnumber = {n/a},\npages = {},\nkeywords = {alpine plants, climate change, ecosystem functions, leaf–root coordination, mycorrhizal colonization, plant economics space, Plant functional traits, transplant experiment},\ndoi = {https://doi.org/10.1111/nph.70503},\nurl = {https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.70503},\neprint = {https://nph.onlinelibrary.wiley.com/doi/pdf/10.1111/nph.70503},\nabstract = {Summary Increasing climate warming and summer droughts are known to affect mountain plant communities, their functional traits and life strategies. However, little is known about how strongly and efficiently communities respond to climate change, and how tightly plant responses are linked to responses of ecosystem functions. To test this, we transplanted alpine plant communities to subalpine conditions, exposing them to warming and drying. We compared these transplanted communities to alpine and subalpine control communities to assess their responses. Five years after transplantation, we found slower growth (e.g. lower leaf nitrogen) and more outsourcing strategies (e.g. lower specific root length) in the warmer and drier subalpine control communities compared to the alpine controls, probably due to drought. Traits of warmed alpine communities shifted toward subalpine controls. However, neither below- nor aboveground traits nor productivity of plants fully acclimated to subalpine conditions. Nevertheless, standard litter decomposition rates, arbuscular colonization and bacterial biomass showed no acclimation lag to the subalpine controls. Significant but insufficient acclimation of plant functional traits and strategies is prone to result in maladapted plant productivity, impairing competitiveness with better adapted subalpine species and leading to the temporally delayed loss of ecosystem features specific to alpine environments.}\n}"
   },
   {
     "entryType": "article",
@@ -187,15 +187,21 @@
       "Wilfried Thuiller"
     ],
     "venue": "Frontiers in Ecology and Evolution",
-    "volume": "9",
+    "volume": "Volume 9 - 2021",
     "number": "",
     "pages": "",
-    "doi": "10.3389/fevo.2021.601384",
-    "abstract": "<p>Modeling species distributions over space and time is one of the major research topics in both ecology and conservation biology. Joint Species Distribution models (JSDMs) have recently been introduced as a tool to better model community data, by inferring a residual covariance matrix between species, after accounting for species' response to the environment. However, these models are computationally demanding, even when latent factors, a common tool for dimension reduction, are used. To address this issue, Taylor-Rodriguez et al. (<xref ref-type=",
-    "keywords": [],
+    "doi": "https://doi.org/10.3389/fevo.2021.601384",
+    "abstract": "Modelling species distributions over space and time is one of the major research topics in both ecology and conservation biology.\nJoint Species Distribution models (JSDMs) have recently been introduced as a tool to better model community data, by inferring a residual covariance matrix between species, after accounting for species' response to the environment. However, these models are computationally demanding, even when latent factors, a common tool for dimension reduction, are used.  To address this issue, Taylor-Rodriguez et al. (2017) proposed to use a Dirichlet process, a Bayesian nonparametric prior, to further reduce model dimension by clustering species in the residual covariance matrix. Here, we built on this approach to include a prior knowledge on the potential number of clusters, and instead used a Pitman--Yor process to address some critical limitations of the Dirichlet process.  We therefore propose a framework that reduces the dimension of the model, facilitates the visualization and analysis of the residual covariance matrix, and builds groups of species that share the same associations with other species. We applied our methodology to a case study of plant communities in a mountain regional of park of the French Alps (the Bauges Regional Park), and demonstrated that our extensions improve dimension reduction and reveal additional information from the residual covariance matrix, notably showing how the estimated clusters are compatible with plant traits, endorsing their importance in shaping communities.",
+    "keywords": [
+      "joint-species-distribution-models",
+      "bayesian-nonparametric",
+      "clustering",
+      "residual-covariance",
+      "plant-communities"
+    ],
     "pdfPath": "/pdfs/10_3389_fevo_2021_601384.pdf",
     "blogPost": null,
-    "bibtex": "@ARTICLE{10.3389/fevo.2021.601384,\n\nAUTHOR={Bystrova, Daria  and Poggiato, Giovanni  and Bektaş, Billur  and Arbel, Julyan  and Clark, James S.  and Guglielmi, Alessandra  and Thuiller, Wilfried },\n\nTITLE={Clustering Species With Residual Covariance Matrix in Joint Species Distribution Models},\n\nJOURNAL={Frontiers in Ecology and Evolution},\n\nVOLUME={9},\n\nYEAR={2021},\n\nURL={https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2021.601384},\n\nDOI={10.3389/fevo.2021.601384},\n\nISSN={2296-701X},\n\nABSTRACT={<p>Modeling species distributions over space and time is one of the major research topics in both ecology and conservation biology. Joint Species Distribution models (JSDMs) have recently been introduced as a tool to better model community data, by inferring a residual covariance matrix between species, after accounting for species' response to the environment. However, these models are computationally demanding, even when latent factors, a common tool for dimension reduction, are used. To address this issue, Taylor-Rodriguez et al. (<xref ref-type=\"bibr\" rid=\"B48\">2017</xref>) proposed to use a Dirichlet process, a Bayesian nonparametric prior, to further reduce model dimension by clustering species in the residual covariance matrix. Here, we built on this approach to include a prior knowledge on the potential number of clusters, and instead used a Pitman–Yor process to address some critical limitations of the Dirichlet process. We therefore propose a framework that includes prior knowledge in the residual covariance matrix, providing a tool to analyze clusters of species that share the same residual associations with respect to other species. We applied our methodology to a case study of plant communities in a protected area of the French Alps (the Bauges Regional Park), and demonstrated that our extensions improve dimension reduction and reveal additional information from the residual covariance matrix, notably showing how the estimated clusters are compatible with plant traits, endorsing their importance in shaping communities.</p>}}"
+    "bibtex": "@ARTICLE{10.3389/fevo.2021.601384,\n\nAUTHOR={Bystrova, Daria  and Poggiato, Giovanni  and Bektaş, Billur  and Arbel, Julyan  and Clark, James S.  and Guglielmi, Alessandra  and Thuiller, Wilfried },\n\nTITLE={Clustering Species With Residual Covariance Matrix in Joint Species Distribution Models},\n\nJOURNAL={Frontiers in Ecology and Evolution},\n\nVOLUME={Volume 9 - 2021},\n\nYEAR={2021},\n\nURL={https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2021.601384},\n\nDOI={10.3389/fevo.2021.601384},\n\nISSN={2296-701X},\n\nKEYWORDS={Joint Species Distribution Models, Bayesian nonparametric, clustering, residual covariance, plant communities},\n\nABSTRACT={Modelling species distributions over space and time is one of the major research topics in both ecology and conservation biology.\nJoint Species Distribution models (JSDMs) have recently been introduced as a tool to better model community data, by inferring a residual covariance matrix between species, after accounting for species' response to the environment. However, these models are computationally demanding, even when latent factors, a common tool for dimension reduction, are used.  To address this issue, Taylor-Rodriguez et al. (2017) proposed to use a Dirichlet process, a Bayesian nonparametric prior, to further reduce model dimension by clustering species in the residual covariance matrix. Here, we built on this approach to include a prior knowledge on the potential number of clusters, and instead used a Pitman--Yor process to address some critical limitations of the Dirichlet process.  We therefore propose a framework that reduces the dimension of the model, facilitates the visualization and analysis of the residual covariance matrix, and builds groups of species that share the same associations with other species. We applied our methodology to a case study of plant communities in a mountain regional of park of the French Alps (the Bauges Regional Park), and demonstrated that our extensions improve dimension reduction and reveal additional information from the residual covariance matrix, notably showing how the estimated clusters are compatible with plant traits, endorsing their importance in shaping communities.}}"
   },
   {
     "entryType": "article",

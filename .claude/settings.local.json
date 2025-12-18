@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for file in climate-response-rates plant-acclimation-range-shifts species-ranges-community-assembly climate-vegetation-disequilibrium ecological-forecasting)",
+      "Bash(done)"
+    ]
+  }
+}

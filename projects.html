@@ -202,6 +202,76 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 10001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 252, 251, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--alpine-purple);
+        }
+
         /* Project Header */
         .project-header {
             max-width: 1400px;
@@ -250,6 +320,12 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
+        }
+
+        a.project-card {
+            text-decoration: none;
+            color: inherit;
         }
 
         .project-card::before {
@@ -278,6 +354,7 @@
             width: 100%;
             height: 280px;
             object-fit: cover;
+            object-position: center 45%;
             transition: transform 0.8s ease;
             position: relative;
             z-index: 1;
@@ -394,6 +471,18 @@
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .project-meta {
+                flex-wrap: wrap;
+            }
+
+            .project-tag {
+                white-space: nowrap;
+            }
+
             .project-header {
                 padding: 4rem 2rem 3rem;
             }
@@ -421,8 +510,23 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="collaborators.html">Collaborations</a>
+        <a href="interactive-science.html">Interactive Science</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
     <header class="project-header fade-in">
         <h1>Research Projects</h1>
@@ -431,31 +535,66 @@
 
     <div class="project-container">
         <div class="project-grid">
-            <article class="project-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Biodiversity Study" class="project-image">
+            <a href="projects/climate-response-rates.html" class="project-card fade-in">
+                <img src="assets/project_1.JPG" alt="Alpine plant community transplant experiment" class="project-image">
                 <div class="project-content">
                     <div class="project-meta">
-                        <span>June 15, 2024</span>
-                        <span class="project-tag">Ecosystem Analysis</span>
+                        <span class="project-tag">Whole-community transplants</span>
                     </div>
-                    <h2 class="project-title">New Findings in Alpine Ecosystem Resilience</h2>
-                    <p class="project-excerpt">Recent studies reveal unexpected adaptability in high-altitude plant communities facing climate change. Our team's latest research shows promising results for conservation efforts in alpine regions.</p>
-                    <a href="projects/project1.html" class="read-more">Read More →</a>
+                    <h2 class="project-title">Rates and lags of plant responses to climate change</h2>
+                    <p class="project-excerpt">Using whole-community transplant experiments, this project studies the pace of plant responses to warming and drought. It focuses on delayed and transient dynamics across populations, communities, and ecosystem processes, and their consequences for predicting biodiversity change.</p>
+                    <span class="read-more">Learn more →</span>
                 </div>
-            </article>
+            </a>
 
-            <article class="project-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Conservation Research" class="project-image">
+            <a href="projects/plant-acclimation-range-shifts.html" class="project-card fade-in">
+                <img src="assets/project_2.jpeg" alt="Historical herbarium specimens from Swiss Alps" class="project-image">
                 <div class="project-content">
                     <div class="project-meta">
-                        <span>June 8, 2024</span>
-                        <span class="project-tag">Conservation</span>
+                        <span class="project-tag">Trait plasticity & range shifts</span>
                     </div>
-                    <h2 class="project-title">Innovative Approaches to Marine Conservation</h2>
-                    <p class="project-excerpt">Exploring new methodologies in marine ecosystem protection through advanced data analytics and community engagement strategies.</p>
-                    <a href="#" class="read-more">Read More →</a>
+                    <h2 class="project-title">Plant acclimation and range shifts under climate change</h2>
+                    <p class="project-excerpt">This project examines whether in situ plant responses, quantified through trait change in historical herbarium specimens, help explain mismatches between predicted and observed range shifts under climate change.</p>
+                    <span class="read-more">Learn more →</span>
                 </div>
-            </article>
+            </a>
+
+            <a href="projects/species-ranges-community-assembly.html" class="project-card fade-in">
+                <img src="assets/project_3.jpeg" alt="Elevational gradient at Calanda mountain in Switzerland" class="project-image">
+                <div class="project-content">
+                    <div class="project-meta">
+                        <span class="project-tag">Community assembly</span>
+                        <span class="project-tag">Species ranges</span>
+                    </div>
+                    <h2 class="project-title">Processes shaping species ranges and community assembly along an elevational gradient</h2>
+                    <p class="project-excerpt">This project disentangles environmental, spatial, and biotic contributions to species ranges and community assembly along an elevational gradient, clarifying which aspects of plant ranges and community assembly are potentially structured by deterministic processes.</p>
+                    <span class="read-more">Learn more →</span>
+                </div>
+            </a>
+
+            <a href="projects/climate-vegetation-disequilibrium.html" class="project-card fade-in">
+                <img src="assets/project_4.jpeg" alt="Forest landscape at Mount Rainier" class="project-image">
+                <div class="project-content">
+                    <div class="project-meta">
+                        <span class="project-tag">Climate–vegetation disequilibrium</span>
+                    </div>
+                    <h2 class="project-title">Climate–vegetation disequilibrium across the Holocene and Anthropocene</h2>
+                    <p class="project-excerpt">This project compares rates of climate and vegetation change across the Holocene and Anthropocene to quantify climate–vegetation disequilibrium under accelerating climate change.</p>
+                    <span class="read-more">Learn more →</span>
+                </div>
+            </a>
+
+            <a href="projects/ecological-forecasting.html" class="project-card fade-in">
+                <img src="assets/project_5.jpeg" alt="Ecological field research" class="project-image">
+                <div class="project-content">
+                    <div class="project-meta">
+                        <span class="project-tag">Ecological forecasting</span>
+                    </div>
+                    <h2 class="project-title">Improving ecological forecasting</h2>
+                    <p class="project-excerpt">This project develops and evaluates near-term ecological forecasts across systems, integrating data, models, and evaluation to understand when and why ecological change is predictable.</p>
+                    <span class="read-more">Learn more →</span>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -492,6 +631,25 @@
             }
 
             lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
     </script>
 </body>

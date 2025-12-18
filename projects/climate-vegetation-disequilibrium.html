@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate–vegetation disequilibrium across the Holocene and Anthropocene – Billur Bektaş</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --stone: #F5F3F0;
+            --off-white: #FDFCFB;
+            --charcoal: #2B2B2B;
+            --charcoal-light: #5A5A5A;
+            --alpine-purple: #7B3FF2;
+            --alpine-purple-light: #9D6FF5;
+            --sky-blue: #7BA5C9;
+            --snow-white: #F8FAFB;
+            --border-subtle: rgba(43, 43, 43, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--charcoal);
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 17px;
+            overflow-x: hidden;
+            animation: pageLoad 0.4s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(123, 63, 242, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 122, 168, 0.03) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 2%) rotate(-1deg); }
+        }
+
+        /* Subtle grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--charcoal);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 251, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            padding: 1.75rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--alpine-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.75rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.015em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 10001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 252, 251, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--alpine-purple);
+        }
+
+        /* Project Header */
+        .project-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 4rem 2rem;
+        }
+
+        .back-link {
+            color: var(--charcoal-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--alpine-purple);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(123, 63, 242, 0.1) 0%, rgba(122, 165, 201, 0.1) 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--alpine-purple);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .project-lead {
+            font-size: 1.2rem;
+            color: var(--charcoal-light);
+            line-height: 1.75;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Content */
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0 4rem;
+        }
+
+        .project-content > .project-hero-image:first-child {
+            margin-top: 0;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .photo-credit {
+            font-size: 0.75rem;
+            color: #999;
+            font-style: italic;
+            margin-top: -1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+        }
+
+        .research-questions {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-questions li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .research-questions li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--alpine-purple);
+            font-weight: 500;
+        }
+
+        .study-areas {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .study-area {
+            padding: 1.25rem;
+            background: white;
+            border-left: 3px solid var(--alpine-purple);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .study-area h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--alpine-purple);
+        }
+
+        .study-area p {
+            margin: 0;
+            font-size: 0.975rem;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .keyword {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(123, 63, 242, 0.08) 0%, rgba(122, 165, 201, 0.08) 100%);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+        }
+
+        .collaboration-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-top: 1.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .project-header,
+            .project-content {
+                padding: 3rem 2rem;
+            }
+
+            .project-header {
+                padding-top: 3rem;
+            }
+
+            .project-hero-image {
+                max-height: 300px;
+                margin-bottom: 2rem;
+            }
+
+            .study-areas {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../index.html" class="logo">Billur Bektaş</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../collaborators.html">Collaborations</a>
+                <a href="../interactive-science.html">Interactive Science</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../publications.html">Publications</a>
+        <a href="../collaborators.html">Collaborations</a>
+        <a href="../interactive-science.html">Interactive Science</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+    </div>
+
+    <div class="project-header">
+        <a href="../projects.html" class="back-link">← Back to Projects</a>
+        <span class="project-tag">Climate–vegetation disequilibrium</span>
+        <h1>Climate–vegetation disequilibrium across the Holocene and Anthropocene</h1>
+        <p class="project-lead">This project compares rates of climate and vegetation change across the Holocene and Anthropocene to quantify climate–vegetation disequilibrium under accelerating climate change.</p>
+    </div>
+
+    <div class="project-content">
+        <img src="../assets/project_4.jpeg" alt="Forest landscape at Mount Rainier" class="project-hero-image">
+        <p class="photo-credit">Photo by Billur Bektaş</p>
+
+        <section class="content-section">
+            <h2>Overview</h2>
+            <p>Climate change has accelerated markedly from the Holocene to the Anthropocene, but vegetation may not respond at the same pace. This project examines whether the rate of vegetation change has kept up with climate change, and whether anthropogenic climate change has led to stronger climate–vegetation disequilibrium than Holocene climate variability.</p>
+            <p>To address this, I compare the pace of climate change with the pace of vegetation change across millennial and contemporary timescales. I analyze tree macrofossil records that capture Holocene vegetation dynamics and combine them with modern vegetation resurveys from Mount Rainier forests to quantify recent changes. By placing long-term paleoecological records and present-day observations within a common analytical framework, this project directly evaluates temporal lags between climate change and vegetation responses, and tests whether these lags have intensified under rapid anthropogenic warming.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Research questions</h2>
+            <ul class="research-questions">
+                <li>How has the pace of climate change differed between the Holocene and the Anthropocene?</li>
+                <li>How does the rate of vegetation change compare to the rate of climate change across these periods?</li>
+                <li>Does anthropogenic climate change lead to stronger climate–vegetation disequilibrium than Holocene climate change?</li>
+                <li>Are lags between climate and vegetation change larger under recent, faster climate change?</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>What I study in this project</h2>
+            <div class="study-areas">
+                <div class="study-area">
+                    <h3>Rates of change</h3>
+                    <p>I quantify and compare the pace of climate change and vegetation change across Holocene and Anthropocene timescales.</p>
+                </div>
+                <div class="study-area">
+                    <h3>Climate–vegetation disequilibrium</h3>
+                    <p>I assess the degree to which vegetation change lags behind climate change, and how the magnitude of this disequilibrium differs between past and present.</p>
+                </div>
+                <div class="study-area">
+                    <h3>Temporal context</h3>
+                    <p>By contrasting millennial-scale and contemporary dynamics, I evaluate how the acceleration of climate change alters the relationship between climate and vegetation change.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Collaboration</h2>
+            <div class="collaboration-box">
+                <p>I conduct this project at <strong>ETH Zürich</strong> within the Plant Ecology Group with Janneke Hille Ris Lambers, with a focus on long-term vegetation dynamics and climate–vegetation relationships. The project is carried out in collaboration with Amy Angert (<strong>University of British Columbia</strong>), Peter Dunwiddie, and Agostina Torres (<strong>ETH Zürich</strong>).</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Keywords</h2>
+            <div class="keywords">
+                <span class="keyword">climate–vegetation disequilibrium</span>
+                <span class="keyword">pace of climate change</span>
+                <span class="keyword">vegetation change</span>
+                <span class="keyword">Holocene</span>
+                <span class="keyword">Anthropocene</span>
+                <span class="keyword">temporal lags</span>
+                <span class="keyword">paleoecology</span>
+                <span class="keyword">resurvey data</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

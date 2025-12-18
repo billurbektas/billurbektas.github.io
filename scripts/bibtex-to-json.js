@@ -65,6 +65,16 @@ class BibTeXParser {
                     year = new Date().getFullYear().toString();
                 }
 
+                // Process DOI and URL - prefer URL if DOI doesn't have a full link
+                let articleUrl = this.cleanField(fields.doi || '');
+                if (articleUrl && !articleUrl.startsWith('http')) {
+                    articleUrl = `https://doi.org/${articleUrl}`;
+                }
+                // Use URL field as fallback if DOI is not available
+                if (!articleUrl && fields.url) {
+                    articleUrl = this.cleanField(fields.url);
+                }
+
                 // Create the entry object
                 const entry = {
                     entryType: type.toLowerCase(),
@@ -77,7 +87,7 @@ class BibTeXParser {
                     volume: fields.volume || '',
                     number: fields.number || '',
                     pages: fields.pages || '',
-                    doi: this.cleanField(fields.doi || ''),
+                    doi: articleUrl,
                     abstract: this.cleanField(fields.abstract || ''),
                     keywords: keywords,
                     pdfPath: `/pdfs/${cleanCitationKey}.pdf`,
