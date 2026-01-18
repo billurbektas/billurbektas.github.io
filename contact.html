@@ -393,7 +393,7 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">Billur Bektaş</a>
             <div class="nav-links">
@@ -405,7 +405,7 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -499,7 +499,23 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-    
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
         // Mobile menu toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');

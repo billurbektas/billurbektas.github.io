@@ -302,6 +302,110 @@
             padding: 0 4rem;
         }
 
+        /* Coming Soon Section */
+        .coming-soon {
+            max-width: 900px;
+            margin: 3rem auto 6rem;
+            padding: 3.5rem 3.5rem;
+            background: white;
+            border-top: 3px solid transparent;
+            background-image: linear-gradient(white, white),
+                              linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 10px 40px rgba(123, 63, 242, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            opacity: 0.02;
+            z-index: 0;
+        }
+
+        .coming-soon-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .coming-soon-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            margin: 0 auto 2.5rem;
+            border-radius: 2px;
+        }
+
+        .coming-soon-intro {
+            color: var(--charcoal);
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 400;
+        }
+
+        .coming-soon p {
+            color: var(--charcoal-light);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-list-title {
+            color: var(--charcoal);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .coming-soon-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .coming-soon-list li {
+            color: var(--charcoal-light);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .coming-soon-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--alpine-purple);
+            font-weight: 400;
+        }
+
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -480,6 +584,23 @@
             .blog-container {
                 padding: 0 2rem;
             }
+
+            .coming-soon {
+                padding: 2.5rem 2rem;
+                margin: 2rem auto 4rem;
+            }
+
+            .coming-soon h2 {
+                font-size: 2rem;
+            }
+
+            .coming-soon-intro {
+                font-size: 1.05rem;
+            }
+
+            .coming-soon-list li {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -496,7 +617,7 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -515,38 +636,26 @@
     </div>
 
     <header class="blog-header fade-in">
-        <!-- <div class="section-label">Research Blog</div> -->
         <h1>Research Blog</h1>
-        <p>Explore our latest findings, methodologies, and insights from the field of ecological research.</p>
+        <p>I use this space to reflect on my research as it unfolds — in the field, through data analysis and modeling, and in conversations with others.</p>
     </header>
 
     <div class="blog-container">
-        <div class="blog-grid">
-            <article class="blog-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Biodiversity Study" class="blog-image">
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span>June 15, 2024</span>
-                        <span class="blog-tag">Ecosystem Analysis</span>
-                    </div>
-                    <h2 class="blog-title">New Findings in Alpine Ecosystem Resilience</h2>
-                    <p class="blog-excerpt">Recent studies reveal unexpected adaptability in high-altitude plant communities facing climate change. Our team's latest research shows promising results for conservation efforts in alpine regions.</p>
-                    <a href="posts/alpine-ecosystem-study.html" class="read-more">Read More →</a>
-                </div>
-            </article>
+        <div class="coming-soon fade-in">
+            <div class="coming-soon-content">
+                <h2>Coming Soon</h2>
+                <div class="coming-soon-divider"></div>
+                <p class="coming-soon-intro">Here, I write about the questions I ask, the choices I make in my research, and how ideas evolve over time.</p>
 
-            <article class="blog-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Conservation Research" class="blog-image">
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span>June 8, 2024</span>
-                        <span class="blog-tag">Conservation</span>
-                    </div>
-                    <h2 class="blog-title">Innovative Approaches to Marine Conservation</h2>
-                    <p class="blog-excerpt">Exploring new methodologies in marine ecosystem protection through advanced data analytics and community engagement strategies.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
+                <p class="coming-soon-list-title">I will share:</p>
+                <ul class="coming-soon-list">
+                    <li>Experiences from field experiments and long-term ecological studies</li>
+                    <li>How I approach data analysis, modeling, and ecological forecasting</li>
+                    <li>Workflows and tools I develop, including AI-based approaches for ecological research</li>
+                    <li>Ideas and insights sparked by conferences, workshops, and collaborations</li>
+                    <li>Occasional contributions from students and collaborators</li>
+                </ul>
+            </div>
         </div>
     </div>
 

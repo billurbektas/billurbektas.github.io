@@ -1,0 +1,213 @@
+================================================================================
+BILLUR BEKTAŞ WEBSITE - COMPLETE CONTENT DOCUMENT
+================================================================================
+
+Generated: January 2026
+Website: billurbektas.com
+
+================================================================================
+TAGLINE / SLOGAN
+================================================================================
+
+"PLANT ECOLOGIST"
+
+================================================================================
+MAIN HEADER / HERO TITLE
+================================================================================
+
+"Dynamics of ecological change in a warming world"
+
+================================================================================
+ABOUT / INTRODUCTORY STATEMENT
+================================================================================
+
+I am a plant ecologist interested in how climate change affects plants over time, from individuals and populations to entire communities. My scientific motivation is to understand the processes driving plant responses in order to improve forecasts of biodiversity across time and space.
+
+================================================================================
+RESEARCH PROGRAM HEADER
+================================================================================
+
+"From processes to predictions across scales"
+
+================================================================================
+RESEARCH PROGRAM DESCRIPTION
+================================================================================
+
+My research combines field experiments, observational data, and statistical modeling to understand how ecological change unfolds over time. I ask how response rates and lags shape the predictability of future biodiversity change.
+
+================================================================================
+RESEARCH THEMES (Three Core Areas)
+================================================================================
+
+1. POPULATIONS & COMMUNITIES
+I examine how plant populations and communities respond to climate change, from individual performance and population dynamics to shifts in community composition across environmental gradients.
+
+2. PROCESSES OVER TIME
+I focus on the temporal processes that shape ecological change, including rates of adjustment, delayed responses, and transient dynamics, as well as the roles of acclimation and biotic interactions.
+
+3. PREDICTABILITY & FORECASTING
+A central goal of my work is to understand when ecological change is predictable, when it is not, and how response lags limit our ability to forecast future biodiversity patterns.
+
+================================================================================
+KEY STATEMENT / RESEARCH PHILOSOPHY
+================================================================================
+
+"Ecological change often unfolds more slowly than climate change itself."
+
+My research shows that populations and communities can remain in long transient states, where ecological reorganization lags behind climate change. Accounting for these lags is essential for improving forecasts of future biodiversity.
+
+================================================================================
+COLLABORATIONS STATEMENT
+================================================================================
+
+"Science as a connected ecosystem"
+
+Many of the questions I work on—about rates of change, delayed responses, and predictability—can only be addressed through collaboration. I work within international research networks that span institutions and disciplines, enabling comparative analyses across sites and regions and the development of shared frameworks for forecasting ecological change over time.
+
+================================================================================
+RESEARCH PROJECTS
+================================================================================
+
+PROJECT 1: RATES AND LAGS OF PLANT RESPONSES TO CLIMATE CHANGE
+---------------------------------------------------------------------------
+Tags: Whole-community transplants
+
+Description:
+Using whole-community transplant experiments, this project studies the pace of plant responses to warming and drought. It focuses on delayed and transient dynamics across populations, communities, and ecosystem processes, and their consequences for predicting biodiversity change.
+
+PROJECT 2: PLANT ACCLIMATION AND RANGE SHIFTS UNDER CLIMATE CHANGE
+---------------------------------------------------------------------------
+Tags: Trait plasticity · Range shifts
+
+Description:
+This project examines whether in situ plant responses, quantified through trait change in historical herbarium specimens, help explain mismatches between predicted and observed range shifts under climate change.
+
+PROJECT 3: PROCESSES SHAPING SPECIES RANGES AND COMMUNITY ASSEMBLY ALONG AN ELEVATIONAL GRADIENT
+---------------------------------------------------------------------------
+Tags: Community assembly · Species ranges
+
+Description:
+This project disentangles environmental, spatial, and biotic contributions to species ranges and community assembly along an elevational gradient, clarifying which aspects of plant ranges and community assembly are potentially structured by deterministic processes.
+
+PROJECT 4: CLIMATE–VEGETATION DISEQUILIBRIUM ACROSS THE HOLOCENE AND ANTHROPOCENE
+---------------------------------------------------------------------------
+Tags: Climate–vegetation disequilibrium
+
+Description:
+This project compares rates of climate and vegetation change across the Holocene and Anthropocene to quantify climate–vegetation disequilibrium under accelerating climate change.
+
+PROJECT 5: IMPROVING ECOLOGICAL FORECASTING
+---------------------------------------------------------------------------
+Tags: Ecological forecasting
+
+Description:
+This project develops and evaluates near-term ecological forecasts across systems, integrating data, models, and evaluation to understand when and why ecological change is predictable.
+
+================================================================================
+INTERACTIVE SCIENCE APPLICATIONS
+================================================================================
+
+APPLICATION 1: TRANSPLANT NETWORK EXPLORER
+---------------------------------------------------------------------------
+Tags: Community transplants · Climate change
+
+Description:
+Explore whole-community transplant experiments conducted across elevational gradients. The app allows users to examine how plant communities respond to experimental warming, compare response rates across sites, and visualize temporal dynamics in community composition.
+
+Link: https://billurbektas.shinyapps.io/transplantshiny-1/
+
+APPLICATION 2: DOÑANA VEGETATION FORECASTING CHALLENGE
+---------------------------------------------------------------------------
+Tags: Ecological forecasting · Vegetation dynamics
+
+Description:
+Interactive platform developed within the Doñana Digital Twin to explore and submit near-term forecasts of vegetation dynamics. The application presents forecast targets, model outputs, and evaluation metrics, enabling comparison of alternative forecasting approaches and transparent assessment of predictability.
+
+Link: https://donanadt.lifewatch.dev/app/forecasting-vegetation-dynamics
+
+APPLICATION 3: EUROPEAN ECOLOGICAL FORECASTING APPLICATIONS DATABASE
+---------------------------------------------------------------------------
+Tags: Ecological forecasting · Open infrastructure
+
+Description:
+Curated database documenting ecological forecasting efforts across Europe. The platform collects and standardizes metadata on forecast targets, data sources, modeling approaches, and evaluation practices, providing an overview of the current forecasting landscape and its future potential. The application accepts contributions of forecasting application metadata to expand the network.
+
+Link: https://billurbektas.shinyapps.io/eu_forecasting_applications/
+
+================================================================================
+BLOG - COMING SOON
+================================================================================
+
+Heading: "Coming Soon"
+
+Introduction:
+Here, I write about the questions I ask, the choices I make in my research, and how ideas evolve over time.
+
+I will share:
+• Experiences from field experiments and long-term ecological studies
+• How I approach data analysis, modeling, and ecological forecasting
+• Workflows and tools I develop, including AI-based approaches for ecological research
+• Ideas and insights sparked by conferences, workshops, and collaborations
+• Occasional contributions from students and collaborators
+
+================================================================================
+NAVIGATION STRUCTURE
+================================================================================
+
+Main Menu:
+• Home
+• Projects
+• Publications
+• Collaborations
+• Interactive Science
+• Blog
+• Contact
+
+================================================================================
+CALL TO ACTION
+================================================================================
+
+"Explore projects" (button on homepage)
+
+================================================================================
+VISUAL THEMES & IMAGERY
+================================================================================
+
+Primary Visual Theme:
+Alpine landscapes, plant communities, field experiments, herbarium specimens, elevational gradients, mountain ecosystems
+
+Color Palette:
+• Alpine purple (#7B3FF2)
+• Sky blue (#7BA5C9)
+• Stone/Off-white backgrounds (#F5F3F0, #FDFCFB)
+• Charcoal text (#2B2B2B)
+
+Design Aesthetic:
+Clean, modern, scientific with subtle animations; topographic contour lines as decorative elements; focus on readability and accessibility
+
+================================================================================
+KEY CONCEPTS & KEYWORDS
+================================================================================
+
+Core Research Concepts:
+• Climate change responses
+• Temporal dynamics
+• Ecological lags
+• Transient states
+• Response rates
+• Plant acclimation
+• Trait plasticity
+• Community assembly
+• Species ranges
+• Elevational gradients
+• Climate–vegetation disequilibrium
+• Ecological forecasting
+• Predictability
+• Biodiversity change
+• Long-term studies
+• Transplant experiments
+• Alpine ecosystems
+
+================================================================================
+END OF DOCUMENT
+================================================================================

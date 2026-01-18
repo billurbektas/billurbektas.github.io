@@ -1,0 +1,225 @@
+Affiliation Extraction Report
+============================================================
+
+Papers processed: 6
+Papers with affiliations: 4
+Total authors: 43
+
+All Authors and Affiliations:
+------------------------------------------------------------
+
+Amelie Saillard
+  Institution: Univ. Alpes Univ. Savoie Mont Blanc CNRS LECA
+  Country: France
+  Source: crossref
+
+Amélie Saillard
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Anke Jentsch
+  Institution: University of Bayreuth Germany
+  Country: Germany
+  Source: crossref
+
+Arnaud Foulquier
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Aud H. Halbritter
+  Institution: University of Bergen Bergen Norway
+  Country: Norway
+  Source: crossref
+
+Brian J. Enquist
+  Institution: University of Arizona Tuscon AZ USA
+  Country: USA
+  Source: crossref
+
+Chelsea Chisholm
+  Institution: ETH Zürich Zürich Switzerland
+  Country: Switzerland
+  Source: crossref
+
+Cindy Arnoldi
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Dagmar Egelkraut
+  Institution: University of Bergen Bergen Norway
+  Country: Norway
+  Source: crossref
+
+Deborah E. Goldberg
+  Institution: University of Arizona Tuscon AZ USA
+  Country: USA
+  Source: crossref
+
+Emilie Lyautey
+  Institution: University Savoie Mont Blanc
+  Country: France
+  Source: crossref
+
+Gemma Rutten
+  Institution: Institute of Plant Sciences University of CH‐3013
+  Country: Switzerland
+  Source: crossref
+
+Georg Niedrist
+  Institution: Institute for Alpine Environment
+  Country: USA
+  Source: crossref
+
+Hanna Nomoto
+  Institution: Institute of Biology
+  Country: Switzerland
+  Source: crossref
+
+Irene Calderón‐Sanou
+  Institution: Université Alpes
+  Country: France
+  Source: crossref
+
+Jake M. Alexander
+  Institution: ETH Zürich Zürich Switzerland
+  Country: Switzerland
+  Source: crossref
+
+Jean‐Christophe Clément
+  Institution: University Savoie Mont Blanc
+  Country: France
+  Source: crossref
+
+Jean‐Gabriel Valay
+  Institution: Université Alpes
+  Country: France
+  Source: crossref
+
+Joachim Paul Töpper
+  Institution: Norwegian Institute for Nature Research
+  Country: Norway
+  Source: crossref
+
+Joshua Lynn
+  Institution: University of Bergen Bergen Norway
+  Country: Norway
+  Source: crossref
+
+Julien Renaud
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Jérôme Poulenard
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Kari Klanderud
+  Institution: Norwegian University of Life Sciences
+  Country: Norway
+  Source: crossref
+
+Lorah Seltzer
+  Institution: University of Arizona Tuscon AZ USA
+  Country: USA
+  Source: crossref
+
+Marie‐Pascale Colace
+  Institution: Université Alpes
+  Country: France
+  Source: crossref
+
+Maya Guéguen
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Paul Kardol
+  Institution: University of Agricultural Sciences Uppsala Sweden
+  Country: Sweden
+  Source: crossref
+
+Peter Wolff
+  Institution: University of Bayreuth Germany
+  Country: Germany
+  Source: crossref
+
+Philippe Choler
+  Institution: Univ. Alpes Univ. Savoie Mont Blanc CNRS LECA
+  Country: France
+  Source: crossref
+
+Raphael Della Vedova
+  Institution: Univ. Alpes CNRS SAJF
+  Country: France
+  Source: crossref
+
+Richard James Telford
+  Institution: Norwegian Institute for Nature Research
+  Country: Norway
+  Source: crossref
+
+Rodrigue Friaud
+  Institution: École Normale Supérieure PSL University
+  Country: France
+  Source: crossref
+
+Sebastián Block
+  Institution: Yale School of the Environment
+  Country: USA
+  Source: crossref
+
+Shiping Wang
+  Institution: Chinese Academy of Sciences Beijing China
+  Country: China
+  Source: crossref
+
+Susanne Lachmuth
+  Institution: Institute of Ecology
+  Country: Germany
+  Source: crossref
+
+Sylvia Haider
+  Institution: Institute of Ecology
+  Country: Germany
+  Source: crossref
+
+Tamara Münkemüller
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Thomas Deola
+  Institution: University of Bayreuth Germany
+  Country: Germany
+  Source: crossref
+
+Tom W.N. Walker
+  Institution: ETH Zürich Zürich Switzerland
+  Country: Switzerland
+  Source: crossref
+
+Vigdis Vandvik
+  Institution: University of Bergen Bergen Norway
+  Country: Norway
+  Source: crossref
+
+Wilfried Thuiller
+  Institution: CNRS
+  Country: France
+  Source: crossref
+
+Yan Yang
+  Institution: Institute of Mountain Hazards and Environment
+  Country: China
+  Source: crossref
+
+Yongtao He
+  Institution: Chinese Academy of Sciences Beijing China
+  Country: China
+  Source: crossref
+

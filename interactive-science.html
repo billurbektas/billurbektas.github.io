@@ -349,13 +349,25 @@
             width: 100%;
             height: 280px;
             object-fit: cover;
+            object-position: center top;
             transition: transform 0.8s ease;
             position: relative;
             z-index: 1;
+            background: var(--stone);
         }
 
         .app-card:hover .app-preview {
             transform: scale(1.05);
+        }
+
+        .app-image-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: var(--stone);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .app-content {
@@ -369,7 +381,8 @@
 
         .app-meta {
             display: flex;
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             margin-bottom: 1.25rem;
             font-size: 0.85rem;
             color: var(--charcoal-light);
@@ -384,6 +397,7 @@
             color: white;
             font-weight: 500;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         .app-title {
@@ -505,6 +519,24 @@
                 padding: 0 2rem;
             }
 
+            .app-preview {
+                height: 200px;
+                object-fit: contain;
+                object-position: center center;
+            }
+
+            .app-image-container {
+                height: 200px;
+            }
+
+            .app-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .app-card:hover .app-preview {
+                transform: scale(1.02);
+            }
+
             .app-links {
                 flex-direction: column;
             }
@@ -529,7 +561,7 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -549,39 +581,52 @@
 
     <header class="interactive-header fade-in">
         <h1>Interactive Science</h1>
-        <p>Explore our collection of interactive R Shiny applications designed to visualize and analyze ecological data. These tools make complex scientific concepts accessible and engaging.</p>
+        <p>Interactive tools that make ecological research and forecasting transparent. These applications enable data exploration, forecast evaluation, and open documentation of forecasting methods.</p>
     </header>
 
     <div class="apps-container">
         <div class="apps-grid">
             <article class="app-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Biodiversity Visualization" class="app-preview">
+                <img src="assets/transplant.png" alt="TransPlant Network Explorer" class="app-preview">
                 <div class="app-content">
                     <div class="app-meta">
-                        <span class="app-tag">Data Visualization</span>
-                        <span>Updated: June 2024</span>
+                        <span class="app-tag">Community transplants</span>
+                        <span class="app-tag">Climate change</span>
                     </div>
-                    <h2 class="app-title">Biodiversity Metrics Explorer</h2>
-                    <p class="app-description">Interactive visualization of biodiversity indices across different ecosystems. Compare metrics, analyze trends, and explore ecological patterns.</p>
+                    <h2 class="app-title">TransPlant Network Explorer</h2>
+                    <p class="app-description">Explore whole-community transplant experiments conducted across elevational gradients. The app allows users to examine how plant communities respond to experimental warming, compare response rates across sites, and visualize temporal dynamics in community composition.</p>
                     <div class="app-links">
-                        <a href="#" class="app-link launch-app">Launch Application</a>
-                        <a href="#" class="app-link view-code">View Code</a>
+                        <a href="https://billurbektas.shinyapps.io/transplantshiny-1/" target="_blank" class="app-link launch-app">Launch application</a>
                     </div>
                 </div>
             </article>
 
             <article class="app-card fade-in">
-                <img src="/api/placeholder/600/400" alt="Species Distribution" class="app-preview">
+                <img src="assets/donana.png" alt="Doñana Vegetation Forecasting Challenge" class="app-preview">
                 <div class="app-content">
                     <div class="app-meta">
-                        <span class="app-tag">Spatial Analysis</span>
-                        <span>Updated: May 2024</span>
+                        <span class="app-tag">Ecological forecasting</span>
+                        <span class="app-tag">Vegetation dynamics</span>
                     </div>
-                    <h2 class="app-title">Species Distribution Mapper</h2>
-                    <p class="app-description">Map and analyze species distributions across different geographical regions. Includes tools for habitat suitability analysis and range predictions.</p>
+                    <h2 class="app-title">Doñana Vegetation Forecasting Challenge</h2>
+                    <p class="app-description">Interactive platform developed within the Doñana Digital Twin to explore and submit near-term forecasts of vegetation dynamics. The application presents forecast targets, model outputs, and evaluation metrics, enabling comparison of alternative forecasting approaches and transparent assessment of predictability.</p>
                     <div class="app-links">
-                        <a href="#" class="app-link launch-app">Launch Application</a>
-                        <a href="#" class="app-link view-code">View Code</a>
+                        <a href="https://donanadt.lifewatch.dev/app/forecasting-vegetation-dynamics" target="_blank" class="app-link launch-app">Launch application</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="app-card fade-in">
+                <img src="assets/eu_database.png" alt="European Ecological Forecasting Applications Database" class="app-preview">
+                <div class="app-content">
+                    <div class="app-meta">
+                        <span class="app-tag">Ecological forecasting</span>
+                        <span class="app-tag">Open infrastructure</span>
+                    </div>
+                    <h2 class="app-title">European Ecological Forecasting Applications Database</h2>
+                    <p class="app-description">Curated database documenting ecological forecasting efforts across Europe. The platform collects and standardizes metadata on forecast targets, data sources, modeling approaches, and evaluation practices, providing an overview of the current forecasting landscape and its future potential. The application accepts contributions of forecasting application metadata to expand the network.</p>
+                    <div class="app-links">
+                        <a href="https://billurbektas.shinyapps.io/eu_forecasting_applications/" target="_blank" class="app-link launch-app">Explore database</a>
                     </div>
                 </div>
             </article>

@@ -1,0 +1,49 @@
+Institutions extracted from PDFs:
+============================================================
+
+Institute of Biology
+  Country: Switzerland
+
+Institute of Mountain Hazards and Environment
+  Country: China
+
+Martin Luther University Halle Wittenberg
+  Country: Germany
+
+Nicholas Schoolofthe Environment
+
+Norwegian Institute for Nature Research
+  Country: Norway
+
+Norwegian University of Life Sciences
+  Country: Norway
+
+The Santa Fe Institute
+  Country: USA
+
+Yale School of the Environment
+  Country: USA
+
+
+============================================================
+Authors matched to affiliations:
+============================================================
+
+Chelsea Chisholm
+  Institute of Biology, Switzerland
+
+Dagmar Egelkraut
+  Institute of Mountain Hazards and Environment, China
+
+Joshua Lynn
+  Institute of Mountain Hazards and Environment, China
+
+Kari Klanderud
+  Norwegian University of Life Sciences, Norway
+
+Richard James Telford
+  Norwegian Institute for Nature Research, Norway
+
+Vigdis Vandvik
+  Institute of Mountain Hazards and Environment, China
+

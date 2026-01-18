@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root {
             /* Colors extracted from photo_BEKTAS2.jpg */
@@ -202,7 +203,6 @@
             width: 100%;
         }
 
-        
         /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
@@ -273,26 +273,59 @@
             color: var(--alpine-purple);
         }
 
-        /* Collaborations Hero */
-        .collaborations-hero {
+        /* Collaborations Header */
+        .collaborations-header {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 5.5rem 4rem 4.5rem;
+            padding: 5.5rem 4rem 3rem;
             text-align: center;
         }
 
-        .collaborations-hero h1 {
+        .collaborations-header h1 {
             font-size: clamp(3rem, 5vw, 4.5rem);
             margin-bottom: 1.5rem;
         }
 
-        .collaborations-hero p {
-            font-size: 1.25rem;
+        .collaborations-header p {
             color: var(--charcoal-light);
+            font-size: 1.25rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 2.5rem;
             line-height: 1.9;
             font-weight: 300;
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toggle-btn {
+            padding: 0.75rem 2rem;
+            background: white;
+            border: 2px solid var(--border-subtle);
+            color: var(--charcoal-light);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--alpine-purple-light) 100%);
+            color: white;
+            border-color: var(--alpine-purple);
+            box-shadow: 0 4px 15px rgba(123, 63, 242, 0.2);
+        }
+
+        .toggle-btn:hover:not(.active) {
+            border-color: var(--alpine-purple);
+            color: var(--alpine-purple);
         }
 
         /* Network Container */
@@ -312,57 +345,101 @@
                               linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
             background-origin: border-box;
             background-clip: padding-box, border-box;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .network-wrapper:hover {
-            box-shadow: 0 20px 60px rgba(123, 63, 242, 0.12);
-        }
-
-        .network-wrapper iframe {
+        #network {
             width: 100%;
-            height: 800px;
-            border: none;
+            height: 700px;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            display: none;
+            z-index: 10;
+        }
+
+        .info-panel.active {
             display: block;
         }
 
-        /* Network Info */
-        .network-info {
+        .info-panel h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--alpine-purple);
+        }
+
+        .info-panel p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal-light);
+        }
+
+        .info-panel strong {
+            color: var(--charcoal);
+        }
+
+        .info-panel a {
+            color: var(--alpine-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-panel a:hover {
+            text-decoration: underline;
+        }
+
+        /* Legend */
+        .network-legend {
             max-width: 1400px;
-            margin: 0 auto 8rem;
+            margin: 0 auto 6rem;
             padding: 0 4rem;
         }
 
-        .info-card {
+        .legend-card {
             background: white;
-            padding: 3rem;
+            padding: 2.5rem 3rem;
             border-radius: 2px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             border-left: 4px solid var(--alpine-purple);
         }
 
-        .info-card h3 {
-            color: var(--charcoal);
+        .legend-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            font-size: 1.75rem;
         }
 
-        .info-card p {
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-text {
+            font-size: 0.95rem;
             color: var(--charcoal-light);
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.975rem;
-            line-height: 1.8;
-        }
-
-        .info-card p::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--alpine-purple);
-            font-weight: 600;
-            font-size: 1.2rem;
         }
 
         /* Scroll-triggered animations */
@@ -384,15 +461,15 @@
                 padding: 0 3rem;
             }
 
-            .collaborations-hero {
-                padding: 4.5rem 3rem 3.5rem;
+            .collaborations-header {
+                padding: 4.5rem 3rem 2.5rem;
             }
 
             .network-container {
                 padding: 0 3rem;
             }
 
-            .network-info {
+            .network-legend {
                 padding: 0 3rem;
             }
         }
@@ -410,28 +487,46 @@
                 display: flex;
             }
 
-            .collaborations-hero {
-                padding: 4rem 2rem 3rem;
+            .collaborations-header {
+                padding: 4rem 2rem 2rem;
             }
 
-            .collaborations-hero h1 {
+            .collaborations-header h1 {
                 font-size: 2.5rem;
+            }
+
+            .view-toggle {
+                flex-direction: column;
+            }
+
+            .toggle-btn {
+                width: 100%;
             }
 
             .network-container {
                 padding: 0 2rem;
             }
 
-            .network-wrapper iframe {
-                height: 600px;
+            #network {
+                height: 500px;
             }
 
-            .network-info {
+            .info-panel {
+                position: static;
+                max-width: 100%;
+                margin-top: 1rem;
+            }
+
+            .network-legend {
                 padding: 0 2rem;
             }
 
-            .info-card {
+            .legend-card {
                 padding: 2rem;
+            }
+
+            .legend-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -449,7 +544,7 @@
                 <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -467,83 +562,552 @@
         <a href="contact.html">Contact</a>
     </div>
 
-    <section class="collaborations-hero fade-in">
+    <header class="collaborations-header fade-in">
         <h1>Research Collaborations</h1>
-        <p>Explore my network of research collaborators, co-authors, and students across different institutions worldwide. This interactive visualization demonstrates the breadth and depth of our collaborative research efforts.</p>
-    </section>
+        <p>An interactive visualization of my research network spanning institutions and continents. These are close collaborations built through shared projects, co-authored papers, supervision, and participation in international research networks.</p>
+
+        <div class="view-toggle">
+            <button class="toggle-btn active" onclick="switchView('researcher')">Researcher View</button>
+            <button class="toggle-btn" onclick="switchView('institutional')">Institutional View</button>
+        </div>
+    </header>
 
     <div class="network-container">
         <div class="network-wrapper fade-in">
-            <iframe src="collaboration_network.html" title="Collaboration Network"></iframe>
+            <div id="network"></div>
+            <div id="info-panel" class="info-panel"></div>
         </div>
     </div>
 
-    <div class="network-info">
-        <div class="info-card fade-in">
+    <div class="network-legend">
+        <div class="legend-card fade-in">
             <h3>Understanding the Network</h3>
-            <p>Node colors represent different institutions</p>
-            <p>Line thickness indicates collaboration intensity</p>
-            <p>Use the dropdown menu to filter by institution</p>
-            <p>Click on any node to see detailed collaboration information</p>
-            <p>Hover over connections to see collaboration details</p>
+            <div id="legend-content" class="legend-grid">
+                <!-- Legend items will be dynamically inserted -->
+            </div>
         </div>
     </div>
 
     <script>
-        // Enhanced scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -80px 0px'
+        let network;
+        let currentView = 'researcher';
+        let allCollaborators = [];
+
+        // Colors for node types - color-blind friendly palette (Tol scheme)
+        const colors = {
+            me: '#7B3FF2',           // Vibrant purple matching button
+            supervisor: '#88CCEE',    // Light blue for PhD/Postdoc supervisors
+            supervised: '#AA4499',    // Purple-magenta for MSc students I supervised
+            close_collab: '#44AA99',  // Teal for close collaborations
+            network: '#CC6677',       // Rose for network collaborations
+
+            // Country colors for institutional view
+            country_colors: {
+                'France': '#332288',     // Dark blue-purple
+                'Switzerland': '#117733', // Dark green
+                'Norway': '#44AA99',      // Teal
+                'Germany': '#CC6677',     // Rose
+                'USA': '#88CCEE',         // Light blue
+                'Italy': '#882255',       // Dark magenta
+                'Canada': '#AA4499',      // Purple-magenta
+                'Spain': '#CC6677',       // Rose
+                'Denmark': '#117733',     // Dark green
+                'Unknown': '#CCCCCC'      // Gray
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar scroll effect
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            lastScroll = currentScroll;
-        });
-    
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        if (mobileMenuToggle && mobileMenu) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close mobile menu when clicking on a link
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
+        // Parse CSV
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',');
+            return lines.slice(1).map(line => {
+                const values = line.split(',');
+                const obj = {};
+                headers.forEach((header, i) => {
+                    obj[header.trim()] = values[i] ? values[i].trim() : '';
                 });
+                return obj;
             });
         }
+
+        // Helper function to determine if color is light or dark
+        function getTextColor(hexColor) {
+            const r = parseInt(hexColor.substr(1, 2), 16);
+            const g = parseInt(hexColor.substr(3, 2), 16);
+            const b = parseInt(hexColor.substr(5, 2), 16);
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance > 0.5 ? '#2B2B2B' : '#FFFFFF';
+        }
+
+        // Load data from all_collaborations.csv
+        async function loadData() {
+            try {
+                const response = await fetch('data/all_collaborations.csv');
+                const blob = await response.blob();
+                const text = await blob.text();  // This ensures proper UTF-8 decoding
+                allCollaborators = parseCSV(text);
+
+                // Initialize network with researcher view
+                createResearcherNetwork();
+                updateLegend();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        // Create researcher network view
+        function createResearcherNetwork() {
+            const nodes = [];
+            const edges = [];
+
+            // Add center node (you)
+            nodes.push({
+                id: 'me',
+                label: 'Billur Bektaş\nETH Zürich',  // Show name and institution on two lines
+                color: colors.me,
+                size: 60,
+                font: {
+                    size: 20,
+                    color: '#2B2B2B'
+                },
+                borderWidth: 3,
+                borderWidthSelected: 4,
+                shapeProperties: {
+                    borderRadius: 6
+                },
+                group: 'center',
+                fixed: { x: true, y: true },
+                x: 0,
+                y: 0
+            });
+
+            // Group collaborators by institution
+            const institutionGroups = {};
+            allCollaborators.forEach((collab, index) => {
+                const inst = collab.Institution || 'Unknown';
+                if (!institutionGroups[inst]) {
+                    institutionGroups[inst] = [];
+                }
+                institutionGroups[inst].push({ ...collab, index });
+            });
+
+            // Add collaborator nodes with institution grouping
+            allCollaborators.forEach((collab, index) => {
+                const nodeId = `person_${index}`;
+
+                // Categorize based on Relationship field
+                let nodeColor, nodeSize;
+                const fontColor = '#2B2B2B';  // ALL collaborators get dark text
+
+                // Distinguish between PhD/Postdoc supervisors and MSc students I supervised
+                if (collab.Relationship && (collab.Relationship.toLowerCase().includes('phd supervisor') ||
+                    collab.Relationship.toLowerCase().includes('postdoc supervisor'))) {
+                    nodeColor = colors.supervisor;
+                    nodeSize = 35;
+                } else if (collab.Relationship && collab.Relationship.toLowerCase().includes('msc supervision')) {
+                    nodeColor = colors.supervised;
+                    nodeSize = 30;
+                } else if (collab.Relationship && collab.Relationship.toLowerCase().includes('close collaboration')) {
+                    nodeColor = colors.close_collab;
+                    nodeSize = 26;
+                } else {
+                    nodeColor = colors.network;
+                    nodeSize = 22;
+                }
+
+                nodes.push({
+                    id: nodeId,
+                    label: collab.Name,
+                    color: nodeColor,
+                    size: nodeSize,
+                    font: {
+                        size: 17,
+                        color: fontColor
+                    },
+                    title: `${collab.Name}\n${collab.Institution}\n${collab.Relationship}`,
+                    data: collab,
+                    group: collab.Institution || 'Unknown'  // Assign group for clustering
+                });
+
+                // Add edge to center
+                // Line width based on number of papers
+                const numPapers = parseInt(collab.Papers) || 0;
+                const edgeWidth = numPapers === 0 ? 2.5 : Math.min(2.5 + (numPapers * 1.2), 10);
+
+                // Dashed line for 0 papers, submitted, or ongoing papers
+                const isOngoing = collab.Description && collab.Description.toLowerCase().includes('ongoing');
+                const isSubmitted = collab.Description && collab.Description.toLowerCase().includes('submitted');
+                const edgeDash = (numPapers === 0 || isOngoing || isSubmitted) ? [5, 5] : false;
+
+                // Determine edge label
+                let edgeTitle = '';
+                if (numPapers > 0) {
+                    edgeTitle = `${numPapers} paper${numPapers > 1 ? 's' : ''} published`;
+                }
+                if (isSubmitted) {
+                    edgeTitle += (edgeTitle ? ', ' : '') + 'paper submitted';
+                }
+                if (isOngoing) {
+                    edgeTitle += (edgeTitle ? ', ' : '') + 'paper ongoing';
+                }
+
+                edges.push({
+                    from: 'me',
+                    to: nodeId,
+                    width: edgeWidth,
+                    dashes: edgeDash,
+                    color: { color: 'rgba(100, 100, 100, 0.5)' },  // Grey tone
+                    title: edgeTitle || 'Collaboration'
+                });
+            });
+
+            drawNetwork(nodes, edges);
+        }
+
+        // Create institutional network view
+        function createInstitutionalNetwork() {
+            const nodes = [];
+            const edges = [];
+            const institutionMap = {};
+
+            // Group collaborators by institution
+            allCollaborators.forEach(collab => {
+                const inst = collab.Institution;
+                if (!institutionMap[inst]) {
+                    institutionMap[inst] = {
+                        name: inst,
+                        country: collab.Country,
+                        people: [],
+                        isMine: false
+                    };
+                }
+                institutionMap[inst].people.push(collab);
+            });
+
+            // Add center node (your institution)
+            nodes.push({
+                id: 'my_inst',
+                label: 'Billur Bektaş',  // Show your name in institutional view
+                color: colors.me,
+                size: 65,
+                font: {
+                    size: 23,
+                    color: '#2B2B2B'
+                }
+            });
+
+            // Add institution nodes with country-based colors
+            Object.entries(institutionMap).forEach(([instName, instData], index) => {
+                const nodeId = `inst_${index}`;
+                const size = 25 + (instData.people.length * 5);
+                const countryColor = colors.country_colors[instData.country] || colors.country_colors['Unknown'];
+                const fontColor = '#2B2B2B';  // ALL institutions get dark text
+
+                nodes.push({
+                    id: nodeId,
+                    label: instName,
+                    color: countryColor,
+                    size: size,
+                    font: {
+                        size: 17,
+                        color: fontColor
+                    },
+                    title: `${instName}\n${instData.country}\n${instData.people.length} collaborator(s)`,
+                    data: instData
+                });
+
+                // Add edge from center
+                edges.push({
+                    from: 'my_inst',
+                    to: nodeId,
+                    width: Math.min(instData.people.length * 1.5, 10),
+                    color: { color: 'rgba(100, 100, 100, 0.5)' }  // Grey tone
+                });
+            });
+
+            drawNetwork(nodes, edges);
+        }
+
+        // Draw network
+        function drawNetwork(nodes, edges) {
+            const container = document.getElementById('network');
+
+            // DEBUG: Log first node to see font settings
+            console.log('First node font settings:', nodes[0]?.font);
+            console.log('Total nodes:', nodes.length);
+
+            // Convert to DataSet for better control
+            const nodesDataSet = new vis.DataSet(nodes);
+            const edgesDataSet = new vis.DataSet(edges);
+            const data = { nodes: nodesDataSet, edges: edgesDataSet };
+
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    borderWidth: 2,
+                    borderWidthSelected: 3,
+                    font: {
+                        size: 17
+                    }
+                },
+                edges: {
+                    smooth: {
+                        type: 'continuous',
+                        roundness: 0.5
+                    },
+                    hoverWidth: 1.5
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: {
+                        iterations: 400,
+                        fit: true
+                    },
+                    barnesHut: {
+                        gravitationalConstant: -20000,
+                        centralGravity: 0.05,
+                        springLength: 250,
+                        springConstant: 0.01,
+                        damping: 0.2,
+                        avoidOverlap: 0.8
+                    }
+                },
+                groups: {
+                    useDefaultGroups: false
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 100,
+                    zoomView: true,
+                    dragView: true,
+                    navigationButtons: true,
+                    keyboard: true
+                }
+            };
+
+            if (network) {
+                network.destroy();
+            }
+
+            network = new vis.Network(container, data, options);
+
+            // Set initial zoom (0.75 = slightly zoomed out for better overview)
+            network.once('stabilized', function() {
+                network.moveTo({
+                    scale: 0.75
+                });
+            });
+
+            // Click event to show info panel
+            network.on('click', function(params) {
+                if (params.nodes.length > 0) {
+                    const nodeId = params.nodes[0];
+                    const node = nodes.find(n => n.id === nodeId);
+                    showInfoPanel(node);
+                }
+            });
+        }
+
+        // Show info panel
+        function showInfoPanel(node) {
+            const panel = document.getElementById('info-panel');
+
+            if (node.id === 'me' || node.id === 'my_inst') {
+                panel.classList.remove('active');
+                return;
+            }
+
+            let html = `<h3>${node.label}</h3>`;
+
+            if (node.data && currentView === 'researcher') {
+                const data = node.data;
+                html += `<p><strong>Institution:</strong> ${data.Institution || 'N/A'}</p>`;
+                html += `<p><strong>Country:</strong> ${data.Country || 'N/A'}</p>`;
+                html += `<p><strong>Relationship:</strong> ${data.Relationship || 'Collaborator'}</p>`;
+
+                const numPapers = parseInt(data.Papers) || 0;
+                if (numPapers > 0) {
+                    html += `<p><strong>Published papers:</strong> ${numPapers}</p>`;
+                }
+
+                const isOngoing = data.Description && data.Description.toLowerCase().includes('ongoing');
+                const isSubmitted = data.Description && data.Description.toLowerCase().includes('submitted');
+                if (isOngoing) html += `<p><strong>Status:</strong> Paper ongoing</p>`;
+                if (isSubmitted) html += `<p><strong>Status:</strong> Paper submitted</p>`;
+
+                if (data.Website) html += `<p><a href="${data.Website}" target="_blank">Website →</a></p>`;
+            } else if (node.data && currentView === 'institutional') {
+                const data = node.data;
+                html += `<p><strong>Country:</strong> ${data.country}</p>`;
+                html += `<p><strong>Collaborators:</strong> ${data.people.length}</p>`;
+                html += `<p><strong>People:</strong></p>`;
+                html += '<ul style="font-size: 0.85rem; margin-left: 1rem;">';
+                data.people.forEach(person => {
+                    html += `<li>${person.Name}</li>`;
+                });
+                html += '</ul>';
+            }
+
+            panel.innerHTML = html;
+            panel.classList.add('active');
+        }
+
+        // Switch view
+        function switchView(view) {
+            currentView = view;
+
+            // Update button states
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update network
+            if (view === 'researcher') {
+                createResearcherNetwork();
+            } else {
+                createInstitutionalNetwork();
+            }
+
+            // Hide info panel
+            document.getElementById('info-panel').classList.remove('active');
+
+            // Update legend
+            updateLegend();
+        }
+
+        // Update legend
+        function updateLegend() {
+            const legendContent = document.getElementById('legend-content');
+
+            if (currentView === 'researcher') {
+                legendContent.innerHTML = `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.supervisor}"></div>
+                        <div class="legend-text">My supervisors (PhD, Postdoc) - Light blue</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.supervised}"></div>
+                        <div class="legend-text">Students I supervised (MSc) - Purple-magenta</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.close_collab}"></div>
+                        <div class="legend-text">Close collaborations - Teal</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.network}"></div>
+                        <div class="legend-text">Network collaborations - Rose</div>
+                    </div>
+                    <div class="legend-item">
+                        <div style="width: 40px; height: 3px; background: rgba(100, 100, 100, 0.6); border-radius: 2px;"></div>
+                        <div class="legend-text">Published papers (thicker = more papers)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div style="width: 40px; height: 2px; background: rgba(100, 100, 100, 0.6); border-radius: 2px; border-top: 2px dashed rgba(100, 100, 100, 0.6);"></div>
+                        <div class="legend-text">Ongoing or submitted papers</div>
+                    </div>
+                `;
+            } else {
+                legendContent.innerHTML = `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['France']}"></div>
+                        <div class="legend-text">France (Dark blue-purple)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Switzerland']}"></div>
+                        <div class="legend-text">Switzerland (Dark green)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Norway']}"></div>
+                        <div class="legend-text">Norway (Teal)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Germany']}"></div>
+                        <div class="legend-text">Germany (Rose)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['USA']}"></div>
+                        <div class="legend-text">USA (Light blue)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Italy']}"></div>
+                        <div class="legend-text">Italy (Dark magenta)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Canada']}"></div>
+                        <div class="legend-text">Canada (Purple-magenta)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${colors.country_colors['Spain']}"></div>
+                        <div class="legend-text">Spain (Rose)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div style="width: 50px; height: 3px; background: rgba(100, 100, 100, 0.6); border-radius: 2px;"></div>
+                        <div class="legend-text">Connection strength (# of collaborators)</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+
+            // Enhanced scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -80px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Navbar scroll effect
+            let lastScroll = 0;
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                lastScroll = currentScroll;
+            });
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close mobile menu when clicking on a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>
