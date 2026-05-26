@@ -2,7 +2,7 @@
 BILLUR BEKTAŞ WEBSITE - COMPLETE CONTENT DOCUMENT
 ================================================================================
 
-Generated: January 2026
+Generated: May 2026
 Website: billurbektas.com
 
 ================================================================================
@@ -21,7 +21,25 @@ MAIN HEADER / HERO TITLE
 ABOUT / INTRODUCTORY STATEMENT
 ================================================================================
 
-I am a plant ecologist interested in how climate change affects plants over time, from individuals and populations to entire communities. My scientific motivation is to understand the processes driving plant responses in order to improve forecasts of biodiversity across time and space.
+I am a plant ecologist interested in how climate change affects plants over time, from individuals and populations to entire communities. My scientific motivation is to understand the processes driving plant responses in order to improve forecasts of biodiversity across time and space. Currently, I am a postdoctoral researcher and lecturer at ETH Zürich.
+
+================================================================================
+CURRENT ROLES
+================================================================================
+
+POSITION
+Postdoctoral Researcher & Lecturer
+ETH Zürich
+Link: https://ibz.ethz.ch/people/peopleprofile.billurbektas.html
+
+EDITORIAL
+Associate Editor
+Journal of Ecology · Ecography
+
+SERVICE
+Steering Committee Member
+European Ecological Forecasting Initiative (EEFI)
+Link: https://euro-ecoforecast.wordpress.com/eefi-steering-committee/
 
 ================================================================================
 RESEARCH PROGRAM HEADER
@@ -133,6 +151,14 @@ Description:
 Curated database documenting ecological forecasting efforts across Europe. The platform collects and standardizes metadata on forecast targets, data sources, modeling approaches, and evaluation practices, providing an overview of the current forecasting landscape and its future potential. The application accepts contributions of forecasting application metadata to expand the network.
 
 Link: https://billurbektas.shinyapps.io/eu_forecasting_applications/
+
+================================================================================
+PUBLICATIONS - IN PRESS (RECENTLY ADDED)
+================================================================================
+
+Hille Ris Lambers, J., Bektaş, B., Torres, A., Manzanedo, R. D., & Feeley, K. J.
+"Elevational range shifts of trees in response to a changing climate."
+Annual Review of Ecology, Evolution, and Systematics, 2026 (in press).
 
 ================================================================================
 BLOG - COMING SOON
