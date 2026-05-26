@@ -370,6 +370,87 @@
             font-weight: 300;
         }
 
+        /* Current Roles Section */
+        .current-roles {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            padding: 0 4rem;
+        }
+
+        .current-roles .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .roles-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .role-card {
+            display: block;
+            padding: 2.5rem 2rem;
+            background: white;
+            border-left: 3px solid var(--alpine-purple);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .role-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(123, 63, 242, 0.12);
+        }
+
+        a.role-card:hover .role-card-title {
+            color: var(--alpine-purple);
+        }
+
+        .role-card-label {
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            background: linear-gradient(135deg, var(--alpine-purple) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .role-card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .role-card-org {
+            font-size: 0.98rem;
+            color: var(--charcoal-light);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        @media (max-width: 1024px) {
+            .roles-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .current-roles {
+                padding: 0 2rem;
+                margin: 5rem auto;
+            }
+        }
+
         .hero-cta {
             display: inline-block;
             padding: 1.2rem 3rem;
@@ -901,7 +982,7 @@
             <div class="hero-subtitle">PLANT ECOLOGIST</div>
             <h1>Dynamics of ecological change in a warming world</h1>
             <p class="hero-description">
-                I am a plant ecologist interested in how climate change affects plants over time, from individuals and populations to entire communities. My scientific motivation is to understand the processes driving plant responses in order to improve forecasts of biodiversity across time and space.
+                I am a plant ecologist interested in how climate change affects plants over time, from individuals and populations to entire communities. My scientific motivation is to understand the processes driving plant responses in order to improve forecasts of biodiversity across time and space. Currently, I am a postdoctoral researcher and lecturer at ETH Zürich.
             </p>
             <a href="projects.html" class="hero-cta">
                 <span>Explore projects</span>
@@ -911,6 +992,29 @@
             <div class="profile-image-wrapper">
                 <img src="assets/photo_BEKTAS2.jpg" alt="Billur Bektaş in alpine landscape" class="profile-image">
             </div>
+        </div>
+    </section>
+
+    <section class="current-roles fade-in">
+        <div class="section-header">
+            <div class="section-label">Current roles</div>
+        </div>
+        <div class="roles-list">
+            <a href="https://ibz.ethz.ch/people/peopleprofile.billurbektas.html" class="role-card" target="_blank" rel="noopener noreferrer">
+                <span class="role-card-label">Position</span>
+                <div class="role-card-title">Postdoctoral Researcher & Lecturer</div>
+                <div class="role-card-org">ETH Zürich</div>
+            </a>
+            <div class="role-card">
+                <span class="role-card-label">Editorial</span>
+                <div class="role-card-title">Associate Editor</div>
+                <div class="role-card-org">Journal of Ecology · Ecography</div>
+            </div>
+            <a href="https://euro-ecoforecast.wordpress.com/eefi-steering-committee/" class="role-card" target="_blank" rel="noopener noreferrer">
+                <span class="role-card-label">Service</span>
+                <div class="role-card-title">Steering Committee Member</div>
+                <div class="role-card-org">European Ecological Forecasting Initiative</div>
+            </a>
         </div>
     </section>
 

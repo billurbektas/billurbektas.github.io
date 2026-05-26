@@ -1,6 +1,35 @@
 [
   {
     "entryType": "article",
+    "citationKey": "hilleRisLambers2026elevational",
+    "sourceFile": "",
+    "year": "in press",
+    "title": "Elevational range shifts of trees in response to a changing climate",
+    "authors": [
+      "Janneke Hille Ris Lambers",
+      "Billur Bektaş",
+      "Agostina Torres",
+      "Rubén D. Manzanedo",
+      "Kenneth J. Feeley"
+    ],
+    "venue": "Annual Review of Ecology, Evolution, and Systematics",
+    "volume": "n/a",
+    "number": "n/a",
+    "pages": "n/a",
+    "doi": null,
+    "abstract": "",
+    "keywords": [
+      "trees",
+      "range-shifts",
+      "elevation-gradient",
+      "climate-warming"
+    ],
+    "pdfPath": null,
+    "blogPost": null,
+    "bibtex": null
+  },
+  {
+    "entryType": "article",
     "citationKey": "10_1111_ecog_07378",
     "sourceFile": "pericles_16000587AxA.bib",
     "year": "in press",
